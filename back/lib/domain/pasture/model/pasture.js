@@ -7,13 +7,10 @@ const Length = require("./values/length");
 class Pasture {
   constructor(id = null, area) {
     this.id = id;
-    this.area = area;
+    this.area = validateArea(area);
   }
   updateArea(newArea) {
-    if (!(newArea instanceof Area)) {
-      throw new Error("Para actualizar area debe introducir una instancia de Area")
-    }
-    this.area = newArea;
+    this.area = validateArea(newArea);
   }
   associateGrass(density) {
     if (!(density instanceof Density)) {
@@ -28,13 +25,13 @@ class Pasture {
     this.fence = new Fence(length);
   }
   updateDensityGrass(density) {
-    if (typeof this.grass == "undefined") {
+    if (typeof this.grass === "undefined") {
       this.grass = new Grass();
     }
     this.grass.updateDensity(density);
   }
   updateLengthFence(length) {
-    if (typeof this.fence == "undefined") {
+    if (typeof this.fence === "undefined") {
       this.fence = new Fence();
     }
     this.fence.updateLength(length);
@@ -42,3 +39,10 @@ class Pasture {
 }
 
 module.exports = Pasture;
+
+function validateArea(area) {
+  if (!(area instanceof Area)) {
+    throw new Error("Para agregar area debe introducir una instancia de Area")
+  }
+  return area
+}

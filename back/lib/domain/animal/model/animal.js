@@ -31,7 +31,7 @@ class Animal {
     }
 
     updateVaccinateRegistry(isVaccinated) {
-        if (typeof this.registry == "undefined") {
+        if (typeof this.registry === "undefined") {
             this.registry = new Registry();
         }
         this.registry.updateVaccinate(isVaccinated);
