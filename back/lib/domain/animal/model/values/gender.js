@@ -1,6 +1,6 @@
 class Gender {
     constructor(gender) {
-        if (date === undefined) {
+        if (gender === undefined) {
             throw new Error("Debes ingresar el sexo del animal");
         }
         if (!(typeof gender == "string")) {
@@ -9,3 +9,5 @@ class Gender {
         this.gender = gender.toUpperCase();
     }
 }
+
+module.exports = Gender;

@@ -10,20 +10,20 @@ class Pasture {
     this.area = area;
   }
   updateArea(newArea) {
-    if(!(newArea instanceof Area)){
-        throw new Error("Para actualizar area debe introducir una instancia de Area")
+    if (!(newArea instanceof Area)) {
+      throw new Error("Para actualizar area debe introducir una instancia de Area")
     }
     this.area = newArea;
   }
   associateGrass(density) {
-    if(!(density instanceof Density)){
-        throw new Error("Para asociar pasto debes introducir una instancia de Density")
+    if (!(density instanceof Density)) {
+      throw new Error("Para asociar pasto debes introducir una instancia de Density")
     }
     this.grass = new Grass(density);
   }
   associateFence(length) {
-    if(!(length instanceof Length)){
-        throw new Error("Para asociar cerca debe introducir una instancia de Length")
+    if (!(length instanceof Length)) {
+      throw new Error("Para asociar cerca debe introducir una instancia de Length")
     }
     this.fence = new Fence(length);
   }
@@ -40,6 +40,5 @@ class Pasture {
     this.fence.updateLength(length);
   }
 }
-new Pasture();
 
 module.exports = Pasture;
