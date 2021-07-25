@@ -8,10 +8,11 @@ class PastureRepository{
     getAllPastures(){
         throw new Error("Error metodo getAllPasture no implemenado")
     }
-    updatePasture(){
+    updatePasture(pastureId, pasture){
         throw new Error("Error metodo updatePasture no implemenado")
     }
-    getByPastureId(){
+    getByPastureId(pastureId){
         throw new Error("Error metodo getByPastureId no implemenado")  
     }
 }
+module.exports = PastureRepository;

@@ -9,7 +9,8 @@ const newArea = new Area(6);
 const Length = require("./lib/domain/pasture/model/values/length");
 const newLength = new Length(5.6);
 
-const Fence = require("./lib/domain/pasture/model/entities/fence")
+const Fence = require("./lib/domain/pasture/model/entities/fence");
+const PastureRepositoryMongo = require("./lib/infrastruture/pasture/repositories/pasture-repository-mongo");
 const newFence = new Fence(newLength)
 console.log(newFence)
 
@@ -25,6 +26,9 @@ potrero.updateDensityGrass(updateDensity);
 potrero.updateLengthFence(newLength);
 potrero.updateArea(updataArea)
 console.log(potrero);
+
+const newrepository = new PastureRepositoryMongo;
+newrepository.createPasture(potrero)
 
 // const AgreggateId = require("./lib/domain/agreggate-id");
 // const Animal = require("./lib/domain/animal/model/animal");

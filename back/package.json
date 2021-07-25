@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "mongodb": "^3.6.10",
     "nodemon": "^2.0.12",
     "uuidv4": "^6.2.11"
   }
