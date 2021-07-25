@@ -31,13 +31,10 @@ class PastureRepositoryMongo extends PastureRepository{
             .then((db) => {
                 return db.collection(collection).insertOne(pasture);
             })
-            .then((result) =>{
-                console.log(result.insertedId)
-                return result.insertedId
-            });
+            .then((result) => result.insertedId);
     }
     async deletePasture(pastureId){
-        const exist = await this.getByPastureId(collection, pastureId);
+        const exist = await this.getByPastureId(pastureId);
         if (!exist) {
             throw new Error("El potrero no existe");
         }
@@ -50,7 +47,7 @@ class PastureRepositoryMongo extends PastureRepository{
 
     async getAllPastures(){
         return connect().then((db) => {
-            return db.collection(collection).find(query).toArray();
+            return db.collection(collection).find().toArray();
           });
     }
     async updatePasture(pastureId, data){
