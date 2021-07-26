@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon lib/infrastruture/webserver/app.js",
+    "start": "node lib/infrastruture/webserver/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
