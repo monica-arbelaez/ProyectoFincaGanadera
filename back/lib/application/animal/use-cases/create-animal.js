@@ -5,17 +5,16 @@ const Age = require("../../../domain/animal/model/values/age");
 const Breed = require("../../../domain/animal/model/values/breed");
 const Gender = require("../../../domain/animal/model/values/gender");
 
-module.exports = (
-  { pastureId = null, breed, age, gender },
-  animalRepository
+module.exports = ( { pastureId = null, breed, age, gender },  animalRepository
 ) => {
-  const pastureIdOV = pastureId ? new AgreggateId(pastureId) : null;
   const animal = new Animal(
     null,
     new Breed(breed),
     new Age(age),
     new Gender(gender)
   );
-  animal.associatePasture(pastureIdOV);
+  if (pastureId) {
+    animal.associatePasture(new AgreggateId(pastureId));
+  }
   return animalRepository.createAnimal(animal);
 };
