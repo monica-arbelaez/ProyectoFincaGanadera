@@ -30,29 +30,29 @@
 // const newrepository = new PastureRepositoryMongo();
 // newrepository.createPasture(potrero);
 
-const AnimalRepositoryMongo = require("./lib/infrastruture/repositories/mongo/animal-repository");
+// const AnimalRepositoryMongo = require("./lib/infrastruture/repositories/mongo/animal-repository");
 
-const AgreggateId = require("./lib/domain/agreggate-id");
-const Animal = require("./lib/domain/animal/model/animal");
-const Age = require("./lib/domain/animal/model/values/age");
-const Breed = require("./lib/domain/animal/model/values/breed");
-const Date = require("./lib/domain/animal/model/values/date");
-const Gender = require("./lib/domain/animal/model/values/gender");
-const IsVaccinated = require("./lib/domain/animal/model/values/is-vaccinated");
-const date = new Date("31/03/2021");
-console.log(date);
+// const AgreggateId = require("./lib/domain/agreggate-id");
+// const Animal = require("./lib/domain/animal/model/animal");
+// const Age = require("./lib/domain/animal/model/values/age");
+// const Breed = require("./lib/domain/animal/model/values/breed");
+// const Date = require("./lib/domain/animal/model/values/date");
+// const Gender = require("./lib/domain/animal/model/values/gender");
+// const IsVaccinated = require("./lib/domain/animal/model/values/is-vaccinated");
+// const date = new Date("31/03/2021");
+// console.log(date);
 
-const vacunado = new IsVaccinated(true);
-console.log(vacunado);
-const pastureId = "60dbef2f14bb751cf2198297";
+// const vacunado = new IsVaccinated(true);
+// console.log(vacunado);
+// const pastureId = "60dbef2f14bb751cf2198297";
 
-//
-const agregadoId = new AgreggateId(pastureId);
-const newBreed = new Breed("Holstein");
-const newAge = new Age(1);
-const newGenders = new Gender("Male");
-const animal = new Animal(1, agregadoId, newBreed, newAge, newGenders);
-console.log(animal);
+// //
+// const agregadoId = new AgreggateId(pastureId);
+// const newBreed = new Breed("Holstein");
+// const newAge = new Age(1);
+// const newGenders = new Gender("Male");
+// const animal = new Animal(1, agregadoId, newBreed, newAge, newGenders);
+// console.log(animal);
 
-const animalRepository = new AnimalRepositoryMongo();
-animalRepository.createAnimal(animal)
+// const animalRepository = new AnimalRepositoryMongo();
+// animalRepository.createAnimal(animal)

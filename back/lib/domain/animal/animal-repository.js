@@ -1,18 +1,18 @@
 class AnimalRepository{
-    createPasture(domainAnimal){
-        throw new Error("Error metodo createPasture no implemenado")
+    createAnimal(domainAnimal){
+        throw new Error("Error metodo createAnimal no implemenado")
     }
-    deletePasture(animalId){
-        throw new Error("Error metodo deletePasture no implemenado")
+    deleteAnimal(animalId){
+        throw new Error("Error metodo deleteAnimal no implemenado")
     }
-    getAllPastures(){
-        throw new Error("Error metodo getAllPasture no implemenado")
+    getAllAnimal(){
+        throw new Error("Error metodo getAllAnimal no implemenado")
     }
-    updatePasture(animalId, animal){
-        throw new Error("Error metodo updatePasture no implemenado")
+    updateAnimal(animalId, animal){
+        throw new Error("Error metodo updateAnimal no implemenado")
     }
-    getByPastureId(animalId){
-        throw new Error("Error metodo getByPastureId no implemenado")  
+    getByAnimalId(animalId){
+        throw new Error("Error metodo getByAnimalId no implemenado")  
     }
 }
 module.exports = AnimalRepository;
