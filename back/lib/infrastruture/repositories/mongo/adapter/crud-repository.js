@@ -1,23 +1,23 @@
 const { ObjectId } = require("mongodb");
-const connect = require("./connect");
+const connect = require("./mongo/adapter/connect");
 
-async function create(collection, pasture) {
+async function create(collection, data) {
   return connect()
     .then((db) => {
-      return db.collection(collection).insertOne(pasture);
+      return db.collection(collection).insertOne(data);
     })
     .then((result) => result.insertedId);
 }
-async function remove(collection, pastureId) {
-  const exist = await this.getByPastureId(pastureId);
+async function remove(collection, id) {
+  const exist = await this.getById(id);
   if (!exist) {
     throw new Error("El potrero no existe");
   }
   return connect()
     .then((db) => {
-      return db.collection(collection).deleteOne({ _id: ObjectId(pastureId) });
+      return db.collection(collection).deleteOne({ _id: ObjectId(id) });
     })
-    .then(() => pastureId);
+    .then(() => id);
 }
 
 async function getAll(collection) {
@@ -25,22 +25,22 @@ async function getAll(collection) {
     return db.collection(collection).find().toArray();
   });
 }
-async function update(collection, pastureId, data) {
+async function update(collection, id, data) {
   return connect()
     .then((db) => {
       return db
         .collection(collection)
         .updateOne(
-          { _id: ObjectId(pastureId) },
+          { _id: ObjectId(id) },
           { $set: data },
           { upsert: true }
         );
     })
-    .then((result) => result.upsertedId || pastureId);
+    .then((result) => result.upsertedId || id);
 }
-async function getById(collection, pastureId) {
+async function getById(collection, id) {
   return connect().then((db) => {
-    return db.collection(collection).findOne({ _id: ObjectId(pastureId) });
+    return db.collection(collection).findOne({ _id: ObjectId(id) });
   });
 }
 module.exports = {
