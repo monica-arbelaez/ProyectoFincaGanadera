@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from "react-redux";
-import { createAnimalAction } from '../../application/actions/AnimalAction'
+import { createAnimalAction } from '../../application/actions/animals'
 import '../css/style.css'
 
 const CreatePasture = () => {
@@ -60,7 +60,6 @@ const CreatePasture = () => {
                                         <option>Brangus</option>
                                         <option>F1</option>
                                         <option>Cebú</option>
-                                        <option>Otro</option>
                                     </select>
                                 </div>
                                 <div className="mb-2">
@@ -84,13 +83,15 @@ const CreatePasture = () => {
                                         className="form-control"
                                         id="edad"
                                         name="age"
+                                        min={0}
+                                        max={100}
                                         required={true}
                                         value={age}
                                         onChange={(e) => setAge(e.target.value)}
                                     />
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={() => deleteDataModal()}>Cerrar</button>
                                     <button type="submit" className="btn btn-primary">Crear</button>
                                 </div>
                             </form>

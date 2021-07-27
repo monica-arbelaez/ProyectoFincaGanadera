@@ -9,8 +9,7 @@ import {
 
 const initialState = {
     animals: [],
-    error: null,
-    loading: false,
+    error: null
 };
 
 const animalReducer = (state = initialState, action) => {
@@ -18,21 +17,15 @@ const animalReducer = (state = initialState, action) => {
         case CREATE_ANIMAL:
             return {
                 ...state,
-                loading: action.payload
             };
         case CREATE_ANIMAL_SUCCESSFUL:
             return {
                 ...state,
-                loading: false,
                 error: null,
                 animals: [...state.animals, action.payload]
             };
         case CREATE_ANIMAL_ERROR:
-            return {
-                ...state,
-                loading: false,
-                error: action.payload
-            };
+            return { ...state, error: action.payload };
         default:
             return state;
     }

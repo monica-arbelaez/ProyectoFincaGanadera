@@ -1,73 +1,41 @@
 {
+  "pasture": [
+    {
+      "area": 1245,
+      "density": 123,
+      "length": 1234,
+      "imageUri": "imageUri",
+      "id": 1
+    },
+    {
+      "area": 1245,
+      "density": 123,
+      "length": 1234,
+      "imageUri": "imageUri",
+      "id": 2
+    },
+    {
+      "area": 1245,
+      "density": 123,
+      "length": 1234,
+      "imageUri": "imageUri",
+      "id": 3
+    }
+  ],
   "animals": [
     {
-      "id": 1,
-      "pastureId": null,
-      "breed": "Hostein",
-      "age": 12,
-      "gender": "MALE"
-    },
-    {
-      "id": 2,
-      "pastureId": null,
-      "breed": "Cebú",
-      "age": 12,
-      "gender": "FEMALE"
-    },
-    {
-      "id": 3,
-      "pastureId": null,
-      "breed": "Brangus",
-      "age": 12,
-      "gender": "MALE"
-    },
-    {
-      "breed": "Brangus",
-      "gender": "MACHO",
-      "age": "2",
-      "id": 4
-    },
-    {
-      "breed": "Holstein",
-      "gender": "MACHO",
-      "age": "123",
-      "id": 5
-    },
-    {
-      "breed": "Cebú",
-      "gender": "MACHO",
-      "age": "78",
-      "id": 6
-    },
-    {
       "breed": "Holstein",
       "gender": "HEMBRA",
       "age": "1234",
-      "id": 7
+      "id": 7,
+      "pastureId": 1
     },
     {
-      "breed": "Holstein",
-      "gender": "MACHO",
-      "age": "1234",
-      "id": 8
-    },
-    {
-      "breed": "Holstein",
-      "gender": "MACHO",
-      "age": "22",
-      "id": 9
-    },
-    {
-      "breed": "Holstein",
-      "gender": "MACHO",
-      "age": "22",
-      "id": 10
-    },
-    {
-      "breed": "Holstein",
+      "breed": "Cebú",
       "gender": "HEMBRA",
-      "age": "22",
-      "id": 11
+      "age": "1234",
+      "id": 7,
+      "pastureId": 2
     }
   ]
 }
