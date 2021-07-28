@@ -48,6 +48,7 @@ const CreatePasture = ({ createAnimalAction }) => {
                                     <select
                                         className="form-control"
                                         name="breed"
+                                        type="text"
                                         required={true}
                                         value={breed}
                                         onChange={(e) => setBreed(e.target.value)}
@@ -64,6 +65,7 @@ const CreatePasture = ({ createAnimalAction }) => {
                                     <label className="form-label">Sexo:</label>
                                     <select
                                         className="form-control"
+                                        type="text"
                                         name="gender"
                                         required={true}
                                         value={gender}
