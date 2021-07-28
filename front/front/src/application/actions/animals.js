@@ -1,8 +1,8 @@
 import AnimalAxios from '../../infrastucture/api/Animal';
-import Animal from '../domain/model/Animal'
-import Breed from '../domain/model/values/breed';
-import Gender from '../domain/model/values/gender';
-import Age from '../domain/model/values/age';
+import Animal from '../domain/animal/model/Animal'
+import Breed from '../domain/animal/model/values/breed';
+import Gender from '../domain/animal/model/values/gender';
+import Age from '../domain/animal/model/values/age';
 
 import {
     CREATE_ANIMAL,
