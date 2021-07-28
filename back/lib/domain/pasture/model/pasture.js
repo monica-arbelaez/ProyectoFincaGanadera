@@ -3,14 +3,19 @@ const Grass = require("./entities/grass");
 const Area = require("./values/area");
 const Density = require("./values/density");
 const Length = require("./values/length");
+const Name = require("./values/name")
 
 class Pasture {
-  constructor(id = null, area) {
+  constructor(id = null, area,name) {
     this.id = id;
     this.area = validateArea(area);
+    this.name = validateName(name);
   }
   updateArea(newArea) {
     this.area = validateArea(newArea);
+  }
+  updateName(newName) {
+    this.name = validateName(newName);
   }
   associateGrass(density) {
     if (!(density instanceof Density)) {
@@ -45,4 +50,10 @@ function validateArea(area) {
     throw new Error("Para agregar area debe introducir una instancia de Area")
   }
   return area
+}
+function validateName(name) {
+  if (!(name instanceof Name)) {
+    throw new Error("Para agregar nombre debe introducir una instancia de Name")
+  }
+  return name
 }
