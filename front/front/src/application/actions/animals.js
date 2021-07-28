@@ -1,4 +1,4 @@
-import AnimalAxios from '../../infrastucture/api/Animal';
+import clienteAxios from '../../infrastucture/api/axios';
 import Animal from '../domain/animal/model/Animal'
 import Breed from '../domain/animal/model/values/breed';
 import Gender from '../domain/animal/model/values/gender';
@@ -6,7 +6,7 @@ import Age from '../domain/animal/model/values/age';
 
 import {
     CREATE_ANIMAL,
-    CREATE_ANIMAL_SUCCESSFUL,
+    CREATE_ANIMAL_SUCCESS,
     CREATE_ANIMAL_ERROR,
     LIST_ANIMAL,
     LIST_SUCCESSFUL_ANIMAL,
@@ -21,7 +21,7 @@ export function createAnimalAction(animal) {
         dispatch(createAnimal());
         try {
             const animal = getAnimal(breed, gender, age);
-            await AnimalAxios.post('/create', animal);
+            await clienteAxios.post('/create', animal);
             dispatch(createAnimalSuccess(animal))
         } catch (error) {
             dispatch(createAnimalError(error.message))
@@ -47,7 +47,7 @@ export function listAnimalsAction() {
     return async (dispatch) => {
         dispatch(listAnimal());
         try {
-            const animals = await AnimalAxios.get('/animals');
+            const animals = await clienteAxios.get('/animals');
             dispatch(listSuccessAnimal(animals));
         } catch (error) {
             dispatch(listAnimalError(error.message));
@@ -55,30 +55,30 @@ export function listAnimalsAction() {
     }
 }
 
-export const createAnimal = () => ({
+const createAnimal = () => ({
     type: CREATE_ANIMAL
 })
 
-export const createAnimalSuccess = (animal) => ({
-    type: CREATE_ANIMAL_SUCCESSFUL,
+const createAnimalSuccess = (animal) => ({
+    type: CREATE_ANIMAL_SUCCESS,
     payload: animal
 })
 
-export const createAnimalError = (error) => ({
+const createAnimalError = (error) => ({
     type: CREATE_ANIMAL_ERROR,
     payload: error
 })
 
-export const listAnimal = () => ({
+const listAnimal = () => ({
     type: LIST_ANIMAL
 })
 
-export const listSuccessAnimal = (animals) => ({
+const listSuccessAnimal = (animals) => ({
     type: LIST_SUCCESSFUL_ANIMAL,
     payload: animals
 })
 
-export const listAnimalError = (error) => ({
+const listAnimalError = (error) => ({
     type: LIST_ANIMAL_ERROR,
     payload: error
 })
