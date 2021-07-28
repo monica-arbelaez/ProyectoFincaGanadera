@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { signInWithGoogle } from '../../infrastucture/firebase/auth';
 import { auth } from '../../infrastucture/firebase/firebase';
@@ -17,7 +17,7 @@ const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
-                <Link className="navbar-brand" to={"/"}>Finca Ganadera</Link>
+                <Link className="navbar-brand" to="/">Finca Ganadera</Link>
 
                 {auth().currentUser
                     ?
@@ -35,7 +35,7 @@ const Header = () => {
                     </>
                     :
                     <button className="btn btn-danger mr-3" type="button" onClick={() => googleSignIn()}>
-                        Google
+                        Login Google
                     </button>
                 }
             </div>
