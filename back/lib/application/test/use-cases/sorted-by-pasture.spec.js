@@ -10,11 +10,12 @@ describe("sort animals by pastureId test", () => {
       .mockImplementation(() => allAnimalsMock);
   });
   it("Happypath animal sorted by pastureId succesfully", async () => {
+    //arrange
     const allPasturesIds = allAnimalsMock.map((animal) =>
       animal.pastureId ? animal.pastureId.id : animal.pastureId
     );
     const pasturesIds = [...new Set(allPasturesIds)];
-
+    //act
     const sortedAnimals = await animalServices.sortedAnimalsByPasture(
       repository
     );
@@ -22,14 +23,13 @@ describe("sort animals by pastureId test", () => {
     const extractObjectId = returnedPastures.map((pastureId) =>
       pastureId ? pastureId.id : pastureId
     );
-    // const values = sortedAnimals.map((group)=>{
-    //     return group.map((animal)=> group[0].pastureId === animal.pastureId)
-    // })
 
     //assert
     expect(extractObjectId).toStrictEqual(pasturesIds);
-    sortedAnimals.map((group) => {
-      group.map((animal) => expect(group[0].pastureId).toStrictEqual(animal.pastureId));
+    sortedAnimals.forEach((group) => {
+      group.forEach((animal) =>
+        expect(group[0].pastureId).toStrictEqual(animal.pastureId)
+      );
     });
   });
 });

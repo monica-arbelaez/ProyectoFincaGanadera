@@ -5,7 +5,6 @@ const animalRepository = new AnimalRepository();
 module.exports = async (req, res, next) => {
   const { body: animal } = req;
   try {
-    console.log(animal);
     const createdAnimalId = await animalsService.createAnimal(
       animal,
       animalRepository
