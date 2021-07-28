@@ -6,7 +6,6 @@ const Home = () => {
         <div className="container text-center">
             <h1>Home</h1>
 
-            <CreatePasture />
         </div>
     )
 }

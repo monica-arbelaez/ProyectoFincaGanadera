@@ -1,19 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { signInWithGoogle } from '../../infrastucture/firebase/auth';
+import { auth } from '../../infrastucture/firebase/firebase';
+import CreatePasture from "./createAnimalModal";
 
 const Header = () => {
+
+    const googleSignIn = async () => {
+        try {
+            await signInWithGoogle();
+        } catch (error) {
+            this.setState({ error: error.message });
+        }
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
                 <Link className="navbar-brand" to={"/"}>Finca Ganadera</Link>
-                <div className="navbar-nav">
-                    <Link className="nav-item nav-link mr-3"
-                        to={"/pasture"}>Pasture </Link>
-                    <Link className="nav-item nav-link mr-3"
-                        to={"/login"}>Login </Link>
-                    <Link className="nav-item nav-link mr-3"
-                        to={"/"}>Home </Link>
-                </div>
+
+                {auth().currentUser
+                    ?
+                    <>
+                        <div className="collapse navbar-collapse justify-content-start" id="navbarNavAltMarkup">
+                            <div className="navbar-nav">
+                                <CreatePasture />
+                                <Link className="nav-item nav-link mr-3"
+                                    to="/pasture">Pasture </Link>
+                            </div>
+                        </div>
+                        <button className="btn btn-primary mr-3" type="button" onClick={() => auth().signOut()}>
+                            Logout
+                        </button>
+                    </>
+                    :
+                    <button className="btn btn-danger mr-3" type="button" onClick={() => googleSignIn()}>
+                        Google
+                    </button>
+                }
             </div>
         </nav>
     )
