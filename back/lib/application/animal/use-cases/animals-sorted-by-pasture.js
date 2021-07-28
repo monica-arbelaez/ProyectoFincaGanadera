@@ -6,9 +6,7 @@ const sortedAnimalsByPasture = async (animalRepository) => {
     }
     return animal.pastureId;
   });
-  console.log(allPasturesIds);
   const pasturesIds = [...new Set(allPasturesIds)];
-  console.log(pasturesIds);
   const orderedAnimals = pasturesIds.map((pastureId) => {
     return animals.filter((animal) => {
       if (animal.pastureId) {
@@ -17,7 +15,6 @@ const sortedAnimalsByPasture = async (animalRepository) => {
       return animal.pastureId === pastureId;
     });
   });
-  console.log(orderedAnimals);
   return orderedAnimals || [];
 };
 
