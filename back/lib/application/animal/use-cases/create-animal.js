@@ -1,5 +1,4 @@
 const AgreggateId = require("../../../domain/agreggate-id");
-const AnimalRepository = require("../../../domain/animal/animal-repository");
 const Animal = require("../../../domain/animal/model/animal");
 const Age = require("../../../domain/animal/model/values/age");
 const Breed = require("../../../domain/animal/model/values/breed");
