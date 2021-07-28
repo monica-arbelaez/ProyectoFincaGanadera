@@ -1,20 +1,18 @@
 import React, { useState } from 'react'
-import { useDispatch } from "react-redux";
 import { createAnimalAction } from '../../application/actions/animals'
 import '../css/style.css'
+import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
 
-const CreatePasture = () => {
+const CreatePasture = ({ createAnimalAction }) => {
 
     //Campos para crear agregado Animal
     const [breed, setBreed] = useState("")
     const [gender, setGender] = useState("")
     const [age, setAge] = useState(0)
 
-    //Usar hooks de react-redux
-    const dispatch = useDispatch();
-
     //Ejecutar action crear animal
-    const createAnimal = (animal) => dispatch(createAnimalAction(animal));
+    const createAnimal = (animal) => createAnimalAction(animal);
 
     const deleteDataModal = () => {
         setBreed("")
@@ -104,4 +102,8 @@ const CreatePasture = () => {
     )
 }
 
-export default CreatePasture;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ createAnimalAction }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(CreatePasture);

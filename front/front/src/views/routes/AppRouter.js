@@ -8,7 +8,8 @@ import store from '../../application/store'
 import Pasture from "../pages/Pasture";
 import { PrivateRoute } from "../routes/PrivateRoute"
 import { auth } from "../../infrastucture/firebase/firebase"
-import { PublicRoute } from "./PublicRoute";
+
+
 class AppRouter extends Component {
 
     constructor() {
