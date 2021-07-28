@@ -1,27 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from "react-redux";
+import { createAnimalAction } from '../../application/actions/animals'
 import '../css/style.css'
 
-export default function CreatePasture() {
+const CreatePasture = () => {
+
+    //Campos para crear agregado Animal
+    const [breed, setBreed] = useState("")
+    const [gender, setGender] = useState("")
+    const [age, setAge] = useState(0)
+
+    //Usar hooks de react-redux
+    const dispatch = useDispatch();
+
+    //Ejecutar action crear animal
+    const createAnimal = (animal) => dispatch(createAnimalAction(animal));
+
+    const deleteDataModal = () => {
+        setBreed("")
+        setGender("")
+        setAge(0)
+    }
+
+    const submitCreateAnimal = (e) => {
+        e.preventDefault();
+        createAnimal({
+            breed,
+            age,
+            gender,
+        })
+        deleteDataModal();
+    }
     return (
         <>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Crear Animal</button>
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Nuevo Animal</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#animalModal" data-whatever="@mdo">Crear Animal</button>
+            <div className="modal fade" id="animalModal" tabIndex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Nuevo Animal</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body text-left">
-                            <form>
+                        <div className="modal-body text-left">
+                            <form onSubmit={submitCreateAnimal}>
                                 <div className="mb-2">
                                     <label className="form-label">Raza:</label>
                                     <select
                                         className="form-control"
                                         name="breed"
+                                        required={true}
+                                        value={breed}
+                                        onChange={(e) => setBreed(e.target.value)}
                                     >
                                         <option></option>
                                         <option>Holstein</option>
@@ -29,7 +60,6 @@ export default function CreatePasture() {
                                         <option>Brangus</option>
                                         <option>F1</option>
                                         <option>Cebú</option>
-                                        <option>Otro</option>
                                     </select>
                                 </div>
                                 <div className="mb-2">
@@ -37,41 +67,41 @@ export default function CreatePasture() {
                                     <select
                                         className="form-control"
                                         name="gender"
+                                        required={true}
+                                        value={gender}
+                                        onChange={(e) => setGender(e.target.value)}
                                     >
                                         <option></option>
                                         <option>MACHO</option>
                                         <option>HEMBRA</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="apellido" class="col-form-label">Edad:</label>
-                                    <input type="number" name="age" class="form-control" id="edad" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="apellido" class="col-form-label">Fecha:</label>
-                                    <input type="date" name="age" class="form-control" id="edad" />
-                                </div>
-                                <div className="mb-2">
-                                    <label className="form-label">Vacunado:</label>
-                                    <select
+                                <div className="form-group">
+                                    <label className="col-form-label">Edad:</label>
+                                    <input
+                                        type="number"
                                         className="form-control"
-                                        name="isVaccinated"
-                                    >
-                                        <option></option>
-                                        <option>SI</option>
-                                        <option>NO</option>
-                                    </select>
+                                        id="edad"
+                                        name="age"
+                                        min={0}
+                                        max={100}
+                                        required={true}
+                                        value={age}
+                                        onChange={(e) => setAge(e.target.value)}
+                                    />
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={() => deleteDataModal()}>Cerrar</button>
+                                    <button type="submit" className="btn btn-primary">Crear</button>
                                 </div>
                             </form>
                         </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Crear</button>
-                        </div>
                     </div>
                 </div>
             </div>
         </>
     )
 }
+
+export default CreatePasture;

@@ -1,5 +1,5 @@
 const AnimalRepository = require("../../../domain/animal/animal-repository");
-const CrudMongoRepository = require("./crud-repository");
+const CrudMongoRepository = require("../crud-repository");
 
 const collection = "animals";
 
