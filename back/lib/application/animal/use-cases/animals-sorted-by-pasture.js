@@ -12,9 +12,9 @@ const sortedAnimalsByPasture = async (animalRepository) => {
   const orderedAnimals = pasturesIds.map((pastureId) => {
     return animals.filter((animal) => {
       if (animal.pastureId) {
-        return animal.pastureId.id == pastureId;
+        return animal.pastureId.id === pastureId;
       }
-      return (animal.pastureId = pastureId);
+      return animal.pastureId === pastureId;
     });
   });
   console.log(orderedAnimals);

@@ -7,7 +7,6 @@ const Gender = require("../../../domain/animal/model/values/gender");
 module.exports = ( { pastureId = null, breed, age, gender },  animalRepository
 ) => {
   const animal = new Animal(
-    null,
     new Breed(breed),
     new Age(age),
     new Gender(gender)
