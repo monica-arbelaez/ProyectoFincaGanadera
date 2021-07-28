@@ -1,5 +1,5 @@
 const PastureRepository = require("../../../domain/pasture/pasture-repository");
-const CrudMongoRepository = require("./crud-repository");
+const CrudMongoRepository = require("./adapter/crud-repository");
 
 const collection = "pastures";
 

@@ -1,5 +1,5 @@
 const { ObjectId } = require("mongodb");
-const connect = require("./mongo/adapter/connect");
+const connect = require("./connect");
 
 async function create(collection, data) {
   return connect()
