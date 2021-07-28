@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon lib/infrastruture/webserver/app.js",
+    "dev": "nodemon lib/infrastructure/webserver/app.js",
     "test": "jest",
-    "start": "node lib/infrastruture/webserver/app.js"
+    "start": "node lib/infrastructure/webserver/app.js"
   },
   "author": "",
   "license": "ISC",
