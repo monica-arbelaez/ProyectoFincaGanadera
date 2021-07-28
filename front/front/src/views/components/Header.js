@@ -8,6 +8,8 @@ const Header = () => {
                 <Link className="navbar-brand" to={"/"}>Finca Ganadera</Link>
                 <div className="navbar-nav">
                     <Link className="nav-item nav-link mr-3"
+                        to={"/pasture"}>Pasture </Link>
+                    <Link className="nav-item nav-link mr-3"
                         to={"/login"}>Login </Link>
                     <Link className="nav-item nav-link mr-3"
                         to={"/"}>Home </Link>
