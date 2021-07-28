@@ -7,6 +7,6 @@ export function PublicRoute({ component: Component, authenticated, ...rest }) {
             {...rest}
             render={(props) => authenticated === false
                 ? <Component {...props} />
-                : <Redirect to='/pastures' />} />
+                : <Redirect to='/pasture' />} />
     );
 }
