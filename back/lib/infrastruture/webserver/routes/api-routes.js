@@ -11,7 +11,7 @@ function routesApi(app) {
   app.use("/api/animals", router);
 
   router.post(
-    "/",
+    "/create",
     validationHandler(animalSchemas.createAnimalSchema),
     async (req, res, next) => createAnimal(req, res, next)
   );
