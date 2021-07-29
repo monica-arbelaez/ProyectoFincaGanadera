@@ -19,6 +19,10 @@ function routesApi(app) {
     "/sort-by-pasture",
     async (req, res, next) => await animalsControllers.sortAnimalsByPasture(req, res, next)
   );
+  router.get(
+    "/filter-by-gender",
+    async (req, res, next) => await animalsControllers.filterAnimalsByGender(req, res, next)
+  );
   router.post(
     "/create-pasture",
     validationHandler(pastureSchemas.createPastureSchema),
