@@ -27,6 +27,10 @@ function routesApi(app) {
     "/sort-by-density",
     async (req, res, next) => await pastureControllers.sortPastureByDensity(req, res, next)
   );
+  router.get(
+    "/sort-by-length",
+    async (req, res, next) => await pastureControllers.sortPastureByLength(req, res, next)
+  );
 }
 
 module.exports = routesApi;
