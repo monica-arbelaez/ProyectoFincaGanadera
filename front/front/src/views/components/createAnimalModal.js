@@ -7,6 +7,7 @@ import { bindActionCreators } from "redux";
 const CreatePasture = ({ createAnimalAction }) => {
 
     //Campos para crear agregado Animal
+    //TODO: poner solo un estado
     const [breed, setBreed] = useState("")
     const [gender, setGender] = useState("")
     const [age, setAge] = useState(0)

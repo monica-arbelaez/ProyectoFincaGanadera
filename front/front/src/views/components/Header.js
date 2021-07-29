@@ -26,7 +26,9 @@ const Header = () => {
                             <div className="navbar-nav">
                                 <CreatePasture />
                                 <Link className="nav-item nav-link mr-3"
-                                    to="/pasture">Pasture </Link>
+                                    to="/pasture">newPasture </Link>
+                                <Link className="nav-item nav-link mr-3"
+                                    to="/list-pasture">List-Pasture </Link>
                             </div>
                         </div>
                         <button className="btn btn-primary mr-3" type="button" onClick={() => auth().signOut()}>
