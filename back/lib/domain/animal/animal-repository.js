@@ -5,7 +5,7 @@ class AnimalRepository{
     deleteAnimal(animalId){
         throw new Error("Error metodo deleteAnimal no implemenado")
     }
-    getAllAnimal(){
+    getAllAnimals(){
         throw new Error("Error metodo getAllAnimal no implemenado")
     }
     updateAnimal(animalId, animal){

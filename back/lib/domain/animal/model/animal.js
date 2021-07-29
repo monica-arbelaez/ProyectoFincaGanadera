@@ -8,9 +8,8 @@ const IsVaccinated = require("./values/is-vaccinated");
 const Registry = require("./entities/registry");
 
 class Animal {
-  constructor(id = null, breed, age, gender) {
-
-    this.id = id;
+  constructor(breed, age, gender) {
+    this.pastureId = null;
     this.dataSheet = newDataSheet(breed, age, gender);
   }
   associatePasture(newPastureId) {
