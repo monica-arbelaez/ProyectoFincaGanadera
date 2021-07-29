@@ -6,8 +6,7 @@ const Length = require("./values/length");
 const Name = require("./values/name")
 
 class Pasture {
-  constructor(id = null, area,name) {
-    this.id = id;
+  constructor( area,name) {
     this.area = validateArea(area);
     this.name = validateName(name);
   }

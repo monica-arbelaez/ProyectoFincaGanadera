@@ -3,8 +3,9 @@ const express = require("express");
 const validationHandler = require("../utils/middleware/validationHandler");
 const animalSchemas = require("../utils/schemas/animals-schemas");
 const createAnimal = require("../animals-controllers/create-animal-controller");
-const createPasture = require("../pasture-controllers/create-pasture-controller")
-const pastureSchemas = require("../utils/schemas/pasture-schemas")
+const createPasture = require("../pasture-controllers/create-pasture-controller");
+const pastureSchemas = require("../utils/schemas/pasture-schemas");
+const pastureControllers = require("../pasture-controllers/index");
 
 function routesApi(app) {
   const router = express.Router();
@@ -20,6 +21,11 @@ function routesApi(app) {
     "/create-pasture",
     validationHandler(pastureSchemas.createPastureSchema),
     async (req, res, next) => createPasture(req, res, next)
+  );
+
+  router.get(
+    "/sort-by-density",
+    async (req, res, next) => await pastureControllers.sortPastureByDensity(req, res, next)
   );
 }
 
