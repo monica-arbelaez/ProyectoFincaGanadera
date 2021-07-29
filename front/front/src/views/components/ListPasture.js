@@ -1,13 +1,13 @@
 import React from 'react'
-import PastureItems from '../components/PastureItem'
+import PastureItems from './PastureItems'
 
 
 export default function ListPasture({ pastures }) {
     return (
         <>
             {
-                pastures.map(pasture => {
-                    return <PastureItems pasture={pasture} />
+                pastures.map((pasture, i) => {
+                    return <PastureItems key={i} pasture={pasture} />
                 })
             }
         </>
