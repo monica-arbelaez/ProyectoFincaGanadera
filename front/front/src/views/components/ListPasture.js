@@ -1,16 +1,17 @@
 import React from 'react'
 import PastureItems from '../components/PastureItem'
+import Carousel from './carousel/Carousel'
 
 
 export default function ListPasture({ pastures }) {
-    return (
-        <>
-            {
-                pastures.map(pasture => {
-                    return <PastureItems pasture={pasture} />
-                })
-            }
-        </>
-
-    )
+    if (pastures.length){
+        return (
+            <div>
+                {pastures.map((animalList)=>
+                    <Carousel list={animalList} />  )}  
+            </div>
+        )}
+    return(
+        <p>No hay animales registrados</p>
+    ) 
 }
