@@ -1,5 +1,4 @@
 import React from 'react'
-import PastureItems from '../components/PastureItem'
 import Carousel from './carousel/Carousel'
 
 
