@@ -10,7 +10,7 @@ const Home = () => {
         <div className="container">
             <div className="row mt-4" >
                 <div className="col mt-4 py-5 px-1">
-                    <img className="finca" src={finca} alt="finca" />
+                    <img className="finca" src={finca} />
                 </div>
                 <div className="col mt-5 py-4 px-4">
                     <div className="text-center">
