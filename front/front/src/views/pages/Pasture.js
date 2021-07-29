@@ -1,24 +1,61 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import potrero from './static/potrero.jpg'
+import '../css/style.css'
+import { createPastureAction } from '../../application/actions/pasture'
+import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
 
-const Pasture = () => {
+const Pasture = ({ createPastureAction }) => {
+    //Campos para crear agregado Animal
+    //TODO: poner solo en un solo estado
+    const [name, setName] = useState("")
+    const [area, setArea] = useState(0)
+    const [density, setDensity] = useState(0)
+    const [length, setLength] = useState(0)
+
+    //Ejecutar action crear animal
+    const createPasture = (pasture) => {
+        createPastureAction(pasture)
+        console.log(pasture)
+    };
+
+    const deleteData = () => {
+        setName("")
+        setArea(0)
+        setDensity(0)
+        setLength(0)
+    }
+    const submitCreatePasture = (e) => {
+        e.preventDefault();
+        createPasture({
+            area,
+            name,
+            length,
+            density,
+        })
+        deleteData()
+    }
     return (
         <Fragment>
             <div className="container">
                 <div className="row">
-                    <div className="col">
-                        <img className="potrero" src={potrero} />
+                    <div className="col mt-5 py-5 px-5">
+                        <img className="potrero" src={potrero} alt="potrero" />
                     </div>
-                    <div className="col">
-                        <h1>Agregar un nuevo Potrero</h1>
-                        <form>
+                    <div className="col mt-5 py-5 px-5 form">
+                        <h1>Nuevo Potrero</h1>
+                        <form onSubmit={submitCreatePasture}>
                             <div className="mb-2">
                                 <label className="form-label">Nombre</label>
                                 <input
                                     className="form-control"
                                     required={true}
+                                    minLength={1}
+                                    maxLength={20}
                                     type="text"
                                     name="name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
                                 />
                             </div>
                             <div className="mb-2">
@@ -26,8 +63,12 @@ const Pasture = () => {
                                 <input
                                     className="form-control"
                                     required={true}
+                                    min={0}
+                                    max={10}
                                     type="number"
                                     name="area"
+                                    value={area}
+                                    onChange={(e) => setArea(e.target.value)}
                                 />
                             </div>
                             <div className="mb-2">
@@ -35,8 +76,12 @@ const Pasture = () => {
                                 <input
                                     className="form-control"
                                     required={true}
+                                    min={0}
+                                    max={10}
                                     type="number"
-                                    name="area"
+                                    name="density"
+                                    value={density}
+                                    onChange={(e) => setDensity(e.target.value)}
                                 />
                             </div>
                             <div className="mb-2">
@@ -44,11 +89,15 @@ const Pasture = () => {
                                 <input
                                     className="form-control"
                                     required={true}
+                                    min={0}
+                                    max={100}
                                     type="number"
-                                    name="area"
+                                    name="length"
+                                    value={length}
+                                    onChange={(e) => setLength(e.target.value)}
                                 />
                             </div>
-                            <button type="submit" className="btn btn-dark ">
+                            <button type="submit" className="btn btn-dark mb-2">
                                 Crear Potrero
                             </button>
                         </form>
@@ -59,4 +108,8 @@ const Pasture = () => {
     )
 }
 
-export default Pasture;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ createPastureAction }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(Pasture);
