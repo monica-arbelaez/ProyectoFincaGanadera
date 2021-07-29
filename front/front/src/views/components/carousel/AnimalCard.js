@@ -12,7 +12,7 @@ export default function AnimalCard({index, data}) {
                     <h4>{data.breed.breed}</h4>
                     <p>{data.age.age} Meses</p>
                     <p>{data.gender.gender}</p>
-                    <a href="#" className="btn btn-primary">More <i className="fa fa-angle-right"></i></a>
+                    <a href="#" className="btn btn-primary">Rotar <i className="fa fa-angle-right"></i></a>
                 </div>						
             </div>
         </div>
