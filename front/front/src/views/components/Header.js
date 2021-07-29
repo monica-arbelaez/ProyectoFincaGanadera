@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { signInWithGoogle } from '../../infrastucture/firebase/auth';
 import { auth } from '../../infrastucture/firebase/firebase';
-import CreatePasture from "./createAnimalModal";
+import CreateAnimal from "./createAnimalModal";
 
 const Header = () => {
 
@@ -24,7 +24,7 @@ const Header = () => {
                     <>
                         <div className="collapse navbar-collapse justify-content-start" id="navbarNavAltMarkup">
                             <div className="navbar-nav">
-                                <CreatePasture />
+                                <CreateAnimal />
                                 <Link className="nav-item nav-link mr-3"
                                     to="/pasture">newPasture </Link>
                                 <Link className="nav-item nav-link mr-3"
