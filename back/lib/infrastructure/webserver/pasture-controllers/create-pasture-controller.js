@@ -2,6 +2,7 @@ const pastureServices = require("../../../application/pasture/use-cases/index");
 const PastureRepository = require("../../repositories/mongo/pasture-repository");
 const pastureRepository = new PastureRepository();
 
+
 module.exports = async (req, res, next) => {
     console.log("prueba")
     const { body: pasture } = req;
