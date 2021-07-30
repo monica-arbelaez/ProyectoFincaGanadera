@@ -1,20 +1,19 @@
 import React, { useState } from 'react'
-import { useDispatch } from "react-redux";
 import { createAnimalAction } from '../../application/actions/animals'
 import '../css/style.css'
+import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
 
-const CreatePasture = () => {
+const CreatePasture = ({ createAnimalAction }) => {
 
     //Campos para crear agregado Animal
+    //TODO: poner solo un estado
     const [breed, setBreed] = useState("")
     const [gender, setGender] = useState("")
     const [age, setAge] = useState(0)
 
-    //Usar hooks de react-redux
-    const dispatch = useDispatch();
-
     //Ejecutar action crear animal
-    const createAnimal = (animal) => dispatch(createAnimalAction(animal));
+    const createAnimal = (animal) => createAnimalAction(animal);
 
     const deleteDataModal = () => {
         setBreed("")
@@ -33,7 +32,8 @@ const CreatePasture = () => {
     }
     return (
         <>
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#animalModal" data-whatever="@mdo">Crear Animal</button>
+            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#animalModal" data-whatever="@mdo"
+            >Crear Animal</button>
             <div className="modal fade" id="animalModal" tabIndex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
@@ -50,6 +50,7 @@ const CreatePasture = () => {
                                     <select
                                         className="form-control"
                                         name="breed"
+                                        type="text"
                                         required={true}
                                         value={breed}
                                         onChange={(e) => setBreed(e.target.value)}
@@ -66,6 +67,7 @@ const CreatePasture = () => {
                                     <label className="form-label">Sexo:</label>
                                     <select
                                         className="form-control"
+                                        type="text"
                                         name="gender"
                                         required={true}
                                         value={gender}
@@ -104,4 +106,8 @@ const CreatePasture = () => {
     )
 }
 
-export default CreatePasture;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ createAnimalAction }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(CreatePasture);

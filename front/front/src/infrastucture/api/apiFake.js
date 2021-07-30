@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const PastureAxios = axios.create({
+const apiFake = axios.create({
     baseURL: 'http://localhost:4000'
 });
 
-export default PastureAxios;
+export default clienteAxios;
