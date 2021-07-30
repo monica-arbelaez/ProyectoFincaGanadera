@@ -10,6 +10,7 @@ import { PrivateRoute } from "../routes/PrivateRoute"
 import { auth } from "../../infrastucture/firebase/firebase"
 import Pastures from "../pages/Pastures";
 import '../css/style.css'
+import ListPastureItems from "../components/ListPastureItems";
 
 
 class AppRouter extends Component {
@@ -55,6 +56,12 @@ class AppRouter extends Component {
                             path="/pasture"
                             authenticated={this.state.authenticated}
                             component={Pasture}
+                        />
+                        <PrivateRoute
+                            exact
+                            path="/order-by-length"
+                            authenticated={this.state.authenticated}
+                            component={ListPastureItems}
                         />
                         <PrivateRoute
                             exact

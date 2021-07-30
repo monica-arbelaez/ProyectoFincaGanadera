@@ -3,10 +3,11 @@ footer p {
 }
 
 footer {
-  position: absolute;
-  /* bottom: 0; */
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  height: 100px;
+  height: 70px;
+  line-height: 25px;
 }
 
 .potrero {
@@ -32,14 +33,87 @@ footer {
   margin: 0; */
 }
 
+/*Cards views*/
+.target {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+  border-radius: 7px;
+  box-shadow: 2px 3px 20px 4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 3px 20px 4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 3px 20px 4px rgba(0, 0, 0, 0.75);
+}
+
+.card-title {
+  margin: 0;
+}
+.card-title {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #000;
+}
+
+.card-body {
+  background-color: #eef;
+}
+
+.card-body button {
+  display: block;
+  margin: 0 auto;
+}
+
+.card img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
 .sizeTarget {
   width: 18rem;
   margin-bottom: 2.5rem;
 }
 
+@media screen and (max-width: 992px) {
+  .target {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .target {
+    display: inherit;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sizeTarget {
+    width: 70%;
+  }
+
+  .form-control {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .sizeTarget {
+    width: 80%;
+    margin-bottom: 1.5rem;
+  }
+
+  .sizeTarget img {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
 /*Carouse Cards*/
 body {
-  background: #ebebeb;
   font-family: "Open Sans", sans-serif;
 }
 .col-center {

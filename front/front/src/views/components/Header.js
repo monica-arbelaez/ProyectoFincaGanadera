@@ -29,6 +29,10 @@ const Header = () => {
                                     to="/pasture">newPasture </Link>
                                 <Link className="nav-item nav-link mr-3"
                                     to="/list-pasture">List-Pasture </Link>
+                                <Link className="nav-item nav-link mr-3"
+                                    to="/order-by-density">order-by-density </Link>
+                                <Link className="nav-item nav-link mr-3"
+                                    to="/order-by-length">order-by-length </Link>
                             </div>
                         </div>
                         <button className="btn btn-primary mr-3" type="button" onClick={() => auth().signOut()}>

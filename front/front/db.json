@@ -1,41 +1,89 @@
 {
-  "pasture": [
+  "data": [
     {
-      "area": 1245,
-      "density": 123,
-      "length": 1234,
-      "imageUri": "imageUri",
-      "id": 1
+        "_id": "6101de8ba1834c4d88e975cc",
+        "area": {
+            "area": 12
+        },
+        "name": {
+            "name": "LA TAPIA2"
+        },
+        "fence": {
+            "id": "21283b9a-d236-480a-aa28-d4ec76a3d400",
+            "length": {
+                "length": 200
+            }
+        },
+        "grass": {
+            "id": "fa49a250-e030-42ed-ab74-3a3b6da8f524",
+            "density": {
+                "density": 2
+            }
+        }
     },
     {
-      "area": 1245,
-      "density": 123,
-      "length": 1234,
-      "imageUri": "imageUri",
-      "id": 2
+        "_id": "6101b1ecea8ac90015c7c88a",
+        "id": null,
+        "area": {
+            "area": 13
+        },
+        "name": {
+            "name": "LA LOMA"
+        },
+        "fence": {
+            "id": "6911ade1-a35d-4e68-b85a-869952b893fa",
+            "length": {
+                "length": 500
+            }
+        },
+        "grass": {
+            "id": "9a906625-0eae-4c10-81e6-dbebae014cf1",
+            "density": {
+                "density": 11
+            }
+        }
     },
     {
-      "area": 1245,
-      "density": 123,
-      "length": 1234,
-      "imageUri": "imageUri",
-      "id": 3
-    }
-  ],
-  "animals": [
-    {
-      "breed": "Holstein",
-      "gender": "HEMBRA",
-      "age": "1234",
-      "id": 7,
-      "pastureId": 1
+        "_id": "6101b153fb2e502968433181",
+        "area": {
+            "area": 12
+        },
+        "name": {
+            "name": "LA LOMA"
+        },
+        "fence": {
+            "id": "4ce9304e-1a8d-4c84-bc68-fd126e7f5f2f",
+            "length": {
+                "length": 200
+            }
+        },
+        "grass": {
+            "id": "ec603b37-16da-4937-8d2a-5425785e19a0",
+            "density": {
+                "density": 22
+            }
+        }
     },
     {
-      "breed": "Cebú",
-      "gender": "HEMBRA",
-      "age": "1234",
-      "id": 7,
-      "pastureId": 2
+        "_id": "6101de85a1834c4d88e975cb",
+        "area": {
+            "area": 12
+        },
+        "name": {
+            "name": "LA TAPIA2"
+        },
+        "fence": {
+            "id": "9911e31c-93fb-48c8-a385-a31e822cbb5f",
+            "length": {
+                "length": 200
+            }
+        },
+        "grass": {
+            "id": "9870d8ec-b661-4710-af5a-8fbbfce2fc77",
+            "density": {
+                "density": 22
+            }
+        }
     }
   ]
 }
