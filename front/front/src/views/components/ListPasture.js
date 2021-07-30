@@ -6,8 +6,8 @@ export default function ListPasture({ pastures }) {
     if (pastures.length) {
         return (
             <div>
-                {pastures.map((animalList, i) =>
-                    <Carousel key={i} list={animalList} />)}
+                {pastures.map((animalList, index) =>
+                    <Carousel index={index} list={animalList} />)}
             </div>
         )
     }

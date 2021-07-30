@@ -3,6 +3,7 @@ import CarouselLayout from './CarouselLayout';
 import CarouselSlide from './CarouselSlide';
 
 const segmentAnimals = (dataList) => {
+
     const segmentedAnimals = []
     const numbForEach = 3;
     for (let i = 0; i < dataList.length; i += numbForEach) {
@@ -19,7 +20,7 @@ const Carousel = (props) => {
     const segmentedAnimals = segmentAnimals(dataList)
 
     return (
-        <CarouselLayout pastureId={pastureId} >
+        <CarouselLayout index={props.index} >
             <CarouselSlide segmentedAnimals={segmentedAnimals} pastureId={pastureId} />
         </CarouselLayout>
 
