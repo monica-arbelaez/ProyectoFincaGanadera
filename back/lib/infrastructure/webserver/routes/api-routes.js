@@ -39,6 +39,10 @@ function routesApi(app) {
     "/sort-by-length",
     async (req, res, next) => await pastureControllers.sortPastureByLength(req, res, next)
   );
+  router.get(
+    "/list-pastures",
+    async (req, res, next) => await pastureControllers.listPastures(req, res, next)
+  );
 }
 
 module.exports = routesApi;
