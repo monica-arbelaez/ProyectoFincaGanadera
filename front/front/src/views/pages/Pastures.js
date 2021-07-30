@@ -35,7 +35,7 @@ export default class Pastures extends React.Component {
     }
     render() {
         return (
-            <div className="album py-5 bg-light">
+            <div className="album pastures ">
                 <div className="container target">
                     <ListPasture pastures={this.state.pastureList} />
                     {

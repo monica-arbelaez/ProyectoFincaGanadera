@@ -1,12 +1,32 @@
 footer p {
   color: white;
 }
+.pastures {
+  margin-top: 60px;
+}
 
 footer {
-  position: absolute;
-  /* bottom: 0; */
+  position: fixed;
+  line-height: 60px;
+  bottom: 0;
   width: 100%;
-  height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 60px;
+}
+.container-home {
+  justify-content: right;
+}
+.aboutus {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px;
+}
+.developer {
+  color: #fff;
+}
+.headline {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
 }
 
 .potrero {
@@ -15,8 +35,8 @@ footer {
 
 .foto {
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: 30px;
+  height: 30px;
 }
 
 .finca {
@@ -36,7 +56,12 @@ footer {
   width: 18rem;
   margin-bottom: 2.5rem;
 }
-
+.pasture-number {
+  color:#ababab;
+  font-size: 28px;
+  font-family: "Signika", sans-serif;
+  padding-bottom: 10px;
+}
 /*Carouse Cards*/
 body {
   background: #ebebeb;
@@ -49,6 +74,9 @@ body {
 .carousel {
   margin: 30px auto 60px;
   padding: 0 80px;
+}
+.carousel-layout {
+  opacity: 0.5;
 }
 .carousel .item {
   text-align: center;
@@ -67,12 +95,12 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   border: none;
-  background: #a177ff;
+  background: rgba(0, 0, 0, 0.5);
   padding: 6px 15px;
   margin-top: 5px;
 }
 .carousel .item .btn:hover {
-  background: #8c5bff;
+  background: rgba(0, 0, 0, 0.8);
 }
 .carousel .item .btn i {
   font-size: 14px;
@@ -96,7 +124,7 @@ body {
   background: none;
   margin: auto 0;
   border-radius: 50%;
-  border: 3px solid rgba(0, 0, 0, 0.8);
+  border: 3px solid #ebebeb;
 }
 .carousel .carousel-control i {
   font-size: 36px;
@@ -107,7 +135,7 @@ body {
   z-index: 5;
   left: 0;
   right: 0;
-  color: rgba(0, 0, 0, 0.8);
+  color: #ebebeb;
   text-shadow: none;
   font-weight: bold;
 }

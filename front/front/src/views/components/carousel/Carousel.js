@@ -1,7 +1,6 @@
 import React from 'react'
 import CarouselLayout from './CarouselLayout';
 import CarouselSlide from './CarouselSlide';
-import SegmentAnimalCards from './SegmentAnimalCards'
 
 const segmentAnimals = (dataList)=>{
     const segmentedAnimals = []
@@ -20,7 +19,7 @@ const Carousel = (props) => {
     const segmentedAnimals = segmentAnimals(dataList)
     
     return (
-        <CarouselLayout pastureId={pastureId} >
+        <CarouselLayout index={props.index} >
             <CarouselSlide segmentedAnimals={segmentedAnimals} pastureId={pastureId}   />
         </CarouselLayout>
                 

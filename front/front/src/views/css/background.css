@@ -1,0 +1,18 @@
+body,
+html {
+  height: 100%;
+}
+.bg {
+  background-image: url("../pages/static/finca.png");
+  height: 100vh;
+  overflow: auto;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-opacity {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  overflow: auto;
+}
