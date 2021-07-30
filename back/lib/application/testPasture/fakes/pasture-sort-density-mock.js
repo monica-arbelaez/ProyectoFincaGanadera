@@ -64,25 +64,6 @@ const messyList = [
 ];
 const listaOrdenada = [
     {
-        "_id": "6101de8ba1834c4d88e975cc",
-        "area": {
-            "area": 12
-        },
-        "name": {
-            "name": "LA TAPIA2"
-        },
-        "fence": {
-            "length": {
-                "length": 200
-            }
-        },
-        "grass": {
-            "density": {
-                "density": 25
-            }
-        }
-    },
-    {
         "_id": "6101b1ecea8ac90015c7c88a",
         "area": {
             "area": 13
@@ -121,6 +102,25 @@ const listaOrdenada = [
             "id": "9a906625-0eae-4c10-81e6-dbebae014cf1",
             "density": {
                 "density": 12
+            }
+        }
+    },
+    {
+        "_id": "6101de8ba1834c4d88e975cc",
+        "area": {
+            "area": 12
+        },
+        "name": {
+            "name": "LA TAPIA2"
+        },
+        "fence": {
+            "length": {
+                "length": 200
+            }
+        },
+        "grass": {
+            "density": {
+                "density": 25
             }
         }
     }
