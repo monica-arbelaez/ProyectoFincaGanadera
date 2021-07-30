@@ -10,7 +10,7 @@ const animalsGenderSchema = joi.string();
 const animalsIsVaccinatedSchema = joi.boolean();
 
 const createAnimalSchema = {
-  pastureId: pastureIdSchema,
+  pastureId: pastureIdSchema, 
   breed: animalBreedSchema.required(),
   age: animalAgeSchema.required(),
   gender: animalsGenderSchema.required(),

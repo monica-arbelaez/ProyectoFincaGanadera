@@ -1,14 +1,24 @@
 const Registry = require("../../../domain/animal/model/entities/registry");
-const Date = require("../../../domain/animal/model/values/date");
+const DateHistory = require("../../../domain/animal/model/values/date");
 const IsVaccinated = require("../../../domain/animal/model/values/is-vaccinated");
 
-const vaccinateAnimal = async (animalId, value, repository) => {
-  const isVaccinated = !(value == "false");
+const getDateNow = () => {
+  const date = new Date();
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  if (month < 10) {
+    return `${day}/0${month}/${year}`;
+  }
+  return `${day}/${month}/${year}`;
+};
+
+const vaccinateAnimal = async (animalId, vaccinate, repository) => {
+  const isVaccinated = vaccinate.isVaccinated;
   const toUpdate = new Registry(
-    new Date("15/07/2021"),
+    new DateHistory(getDateNow()),
     new IsVaccinated(isVaccinated)
   );
-  console.log(toUpdate)
   const vaccinatedAnimal = await repository.updateAnimal(animalId, {
     registry: toUpdate,
   });

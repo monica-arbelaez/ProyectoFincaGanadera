@@ -23,6 +23,12 @@ function routesApi(app) {
     "/filter-by-gender",
     async (req, res, next) => await animalsControllers.filterAnimalsByGender(req, res, next)
   );
+  router.patch(
+    '/:animalId/vaccinate',
+    validationHandler({ animalId:animalSchemas.animalIdSchema}, 'params'),
+    validationHandler(animalSchemas.vaccinateAnimalSchema),
+    async (req, res, next) => await animalsControllers.vaccinateAnimal(req, res, next)
+  );
   router.post(
     "/create-pasture",
     validationHandler(pastureSchemas.createPastureSchema),

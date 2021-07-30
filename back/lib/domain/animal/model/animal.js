@@ -3,7 +3,7 @@ const DataSheet = require("./entities/data-sheet");
 const Breed = require("./values/breed");
 const Age = require("./values/age");
 const Gender = require("./values/gender");
-const Date = require("./values/date");
+const DateHistory = require("./values/date");
 const IsVaccinated = require("./values/is-vaccinated");
 const Registry = require("./entities/registry");
 
@@ -17,9 +17,9 @@ class Animal {
   }
 
   createRegistry(date, isVaccinate) {
-    if (!(date instanceof Date)) {
+    if (!(date instanceof DateHistory)) {
       throw new Error(
-        "Para crear el registro debes introducir una instancia de Date"
+        "Para crear el registro debes introducir una instancia de DateHistory"
       );
     }
     if (!(isVaccinate instanceof IsVaccinated)) {
