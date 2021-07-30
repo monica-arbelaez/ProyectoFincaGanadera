@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { signInWithGoogle } from "../../infrastucture/firebase/auth";
 import { auth } from "../../infrastucture/firebase/firebase";

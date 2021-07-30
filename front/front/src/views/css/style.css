@@ -61,6 +61,12 @@ footer {
   margin: 0; */
 }
 
+.formulario {
+  background-color: rgba(255, 255, 255, 0.507);
+  margin-top: 35rem;
+  border-radius: 1rem;
+}
+
 /*Cards views*/
 .target {
   display: grid;

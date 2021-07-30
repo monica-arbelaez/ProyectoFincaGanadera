@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import potrero from './static/potrero.jpg'
+import { useHistory } from "react-router-dom";
 import '../css/style.css'
 import { createPastureAction } from '../../application/actions/pasture'
 import { connect } from 'react-redux';
@@ -33,17 +34,19 @@ const Pasture = ({ createPastureAction }) => {
             length,
             density,
         })
-        deleteData()
+        deleteData();
+        handleClick()
+    }
+    const history = useHistory();
+    function handleClick() {
+        history.push("/order-by-length");
     }
     return (
         <Fragment>
             <div className="container">
-                <div className="row">
-                    <div className="col mt-5 py-5 px-5">
-                        <img className="potrero" src={potrero} alt="potrero" />
-                    </div>
-                    <div className="col mt-5 py-5 px-5 form">
-                        <h1>Nuevo Potrero</h1>
+                <div className="row d-flex justify-content-center">
+                    <div className="col-xs-7 col-sm-8 col-md-9 form formulario">
+                        <h1 className=" d-flex justify-content-center font-weight-bold  ">Nuevo Potrero</h1>
                         <form onSubmit={submitCreatePasture}>
                             <div className="mb-2">
                                 <label className="form-label">Nombre</label>
@@ -97,7 +100,9 @@ const Pasture = ({ createPastureAction }) => {
                                     onChange={(e) => setLength(e.target.value)}
                                 />
                             </div>
-                            <button type="submit" className="btn btn-dark mb-2">
+                            <button type="submit" className="btn btn-dark mb-2 float-right"
+
+                            >
                                 Crear Potrero
                             </button>
                         </form>
