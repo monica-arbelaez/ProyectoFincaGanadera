@@ -1,29 +1,69 @@
-import React from 'react'
-import CarouselLayout from './CarouselLayout';
-import CarouselSlide from './CarouselSlide';
+import React from "react";
+import CarouselLayout from "./CarouselLayout";
+import CarouselSlide from "./CarouselSlide";
 
-const segmentAnimals = (dataList)=>{
-    const segmentedAnimals = []
-    const numbForEach = 3;
-    for (let i = 0; i < dataList.length; i += numbForEach) {
-        let chunk = dataList.slice(i, i + numbForEach);
-        segmentedAnimals.push(chunk);
-    }
-    return segmentedAnimals
+function debounce(fn, ms) {
+  let timer;
+  return (_) => {
+    clearTimeout(timer);
+    timer = setTimeout((_) => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
 }
+
+const timesForEach = () => {
+  const width = window.innerWidth;
+  if (width <= 767) {
+    return 1;
+  }
+  if (width > 767 && width <= 992) {
+    return 2;
+  }
+  if (width > 992) {
+    return 3;
+  }
+};
+
+const segmentAnimals = (dataList, times) => {
+  console.log(times);
+  const segmentedAnimals = [];
+  for (let i = 0; i < dataList.length; i += times) {
+    let chunk = dataList.slice(i, i + times);
+    segmentedAnimals.push(chunk);
+  }
+  return segmentedAnimals;
+};
 
 const Carousel = (props) => {
-    
-    const dataList = props.list
-    const pastureId = dataList[0].pastureId? dataList[0].pastureId.id : "sinPasture" 
-    const segmentedAnimals = segmentAnimals(dataList)
-    
-    return (
-        <CarouselLayout index={props.index} >
-            <CarouselSlide segmentedAnimals={segmentedAnimals} pastureId={pastureId}   />
-        </CarouselLayout>
-                
-    )
-}
+  const list = props.list;
+  const pastureId = list[0].pastureId ? list[0].pastureId.id : "sinPasture";
+
+  const [segmentedAnimals, setSegmets] = React.useState(
+    segmentAnimals(list, timesForEach())
+  );
+
+  React.useEffect(() => {
+    const debouncedHandleResize = debounce(() => {
+      const numbForEach = timesForEach();
+      const segmentsAnimals = segmentAnimals(props.list, numbForEach);
+      setSegmets(segmentsAnimals);
+    }, 200);
+
+    window.addEventListener("resize", debouncedHandleResize);
+    return (_) => {
+      window.removeEventListener("resize", debouncedHandleResize);
+    };
+  });
+  return (
+    <CarouselLayout index={props.index}>
+      <CarouselSlide
+        segmentedAnimals={segmentedAnimals}
+        pastureId={pastureId}
+      />
+    </CarouselLayout>
+  );
+};
 
 export default Carousel;
