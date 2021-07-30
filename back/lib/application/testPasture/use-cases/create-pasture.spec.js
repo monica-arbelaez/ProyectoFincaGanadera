@@ -1,5 +1,5 @@
 const PastureRepository = require("../../../domain/pasture/pasture-repository");
-const createpastureMock = require("./create-pasture-mock");
+const createpastureMock = require("../fakes/create-pasture-mock");
 const pastureServices = require("../../pasture/use-cases/index");
 const repository = new PastureRepository();
 
