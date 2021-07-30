@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { signInWithGoogle } from "../../infrastucture/firebase/auth";
 import { auth } from "../../infrastucture/firebase/firebase";
@@ -29,12 +29,14 @@ const Header = () => {
               >
                 <div className="navbar-nav">
                   <CreateAnimal />
-                  <Link className="nav-item nav-link mr-3" to="/pasture">
-                    newPasture{" "}
-                  </Link>
-                  <Link className="nav-item nav-link mr-3" to="/list-pasture">
-                    List-Pasture{" "}
-                  </Link>
+                  <Link className="nav-item nav-link mr-3"
+                    to="/pasture">newPasture </Link>
+                  <Link className="nav-item nav-link mr-3"
+                    to="/list-pasture">List-Pasture </Link>
+                  <Link className="nav-item nav-link mr-3"
+                    to="/order-by-density">order-by-density </Link>
+                  <Link className="nav-item nav-link mr-3"
+                    to="/order-by-length">order-by-length </Link>
                 </div>
               </div>
               <button

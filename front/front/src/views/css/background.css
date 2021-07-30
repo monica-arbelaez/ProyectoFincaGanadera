@@ -15,4 +15,5 @@ html {
   background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
   overflow: auto;
+  padding-top: 80px;
 }

@@ -5,6 +5,13 @@ footer p {
   margin-top: 60px;
 }
 
+.pasture-number {
+  color: #ababab;
+  font-size: 28px;
+  font-family: "Signika", sans-serif;
+  padding-bottom: 10px;
+}
+
 footer {
   position: fixed;
   line-height: 60px;
@@ -24,9 +31,11 @@ footer {
   color: #fff;
 }
 .headline {
+  top: 0;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
+  z-index: 100;
 }
 
 .potrero {
@@ -52,19 +61,63 @@ footer {
   margin: 0; */
 }
 
+.formulario {
+  background-color: rgba(255, 255, 255, 0.507);
+  margin-top: 35rem;
+  border-radius: 1rem;
+}
+
+/*Cards views*/
+.target {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  border-radius: 7px;
+  box-shadow: 2px 3px 20px 4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 3px 20px 4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 3px 20px 4px rgba(0, 0, 0, 0.75);
+}
+
+.card-title {
+  margin: 0;
+}
+.card-title {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #000;
+}
+
+.card-body {
+  background-color: #eef;
+}
+
+.card-body button {
+  display: block;
+  margin: 0 auto;
+}
+
+.card img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
 .sizeTarget {
-  width: 18rem;
-  margin-bottom: 2.5rem;
+  display: flex;
+  margin: 0 auto;
+  width: 27rem;
+  margin-bottom: 4rem;
 }
-.pasture-number {
-  color:#ababab;
-  font-size: 28px;
-  font-family: "Signika", sans-serif;
-  padding-bottom: 10px;
-}
+
 /*Carouse Cards*/
 body {
-  background: #ebebeb;
   font-family: "Open Sans", sans-serif;
 }
 .col-center {
@@ -161,4 +214,55 @@ body {
 }
 .carousel-indicators li.active {
   background: #555;
+}
+
+@media screen and (max-width: 992px) {
+  .target {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  .carousel {
+    margin: 0 auto;
+    padding: 0 6rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .target {
+    display: inherit;
+    grid-template-columns: inherit;
+    /* margin: 4rem;   */
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  .sizeTarget {
+    width: 50%;
+  }
+
+  .form-control {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .sizeTarget {
+    width: 60%;
+    margin-bottom: 2rem;
+  }
+
+  .sizeTarget img {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .target {
+    display: block;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
 }

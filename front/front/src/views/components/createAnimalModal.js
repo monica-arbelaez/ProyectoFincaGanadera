@@ -32,7 +32,8 @@ const CreatePasture = ({ createAnimalAction }) => {
     }
     return (
         <>
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#animalModal" data-whatever="@mdo">Crear Animal</button>
+            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#animalModal" data-whatever="@mdo"
+            >Crear Animal</button>
             <div className="modal fade" id="animalModal" tabIndex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">

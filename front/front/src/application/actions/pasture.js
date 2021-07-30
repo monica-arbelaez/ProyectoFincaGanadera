@@ -12,10 +12,8 @@ export function createPastureAction(pasture) {
     return async (dispatch) => {
         const { area, name, length, density } = pasture;
         dispatch(createPasture())
-        console.log('Pasture Action')
         try {
             const pasture = getPasture(parseFloat(area), name, parseFloat(length), parseFloat(density));
-            console.log(pasture);
             await clienteAxios.post('/create-pasture', pasture);
             dispatch(createPastureSuccess(pasture))
         } catch (error) {

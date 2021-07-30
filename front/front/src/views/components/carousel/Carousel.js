@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import CarouselLayout from "./CarouselLayout";
 import CarouselSlide from "./CarouselSlide";
 
@@ -27,7 +27,6 @@ const timesForEach = () => {
 };
 
 const segmentAnimals = (dataList, times) => {
-  console.log(times);
   const segmentedAnimals = [];
   for (let i = 0; i < dataList.length; i += times) {
     let chunk = dataList.slice(i, i + times);
@@ -40,16 +39,16 @@ const Carousel = (props) => {
   const list = props.list;
   const pastureId = list[0].pastureId ? list[0].pastureId.id : "sinPasture";
 
-  const [segmentedAnimals, setSegmets] = React.useState(
+  const [segmentedAnimals, setSegmets] = useState(
     segmentAnimals(list, timesForEach())
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     const debouncedHandleResize = debounce(() => {
       const numbForEach = timesForEach();
       const segmentsAnimals = segmentAnimals(props.list, numbForEach);
       setSegmets(segmentsAnimals);
-    }, 200);
+    }, 40);
 
     window.addEventListener("resize", debouncedHandleResize);
     return (_) => {
