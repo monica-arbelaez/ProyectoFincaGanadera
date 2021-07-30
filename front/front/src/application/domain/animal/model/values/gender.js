@@ -10,4 +10,4 @@ class Gender {
     }
 }
 
-module.exports = Gender;
+export default Gender;

@@ -2,18 +2,18 @@ import React from 'react'
 import SegmentAnimalCards from './SegmentAnimalCards'
 
 
-export default function CarouselSlide({pastureId, segmentedAnimals }) {
-    return(
-        <div id={pastureId} className="carousel slide" data-ride="carousel" data-interval="5000">
-            
+export default function CarouselSlide({ pastureId, segmentedAnimals }) {
+    return (
+        <div key={pastureId} id={pastureId} className="carousel slide" data-ride="carousel" data-interval="5000">
+
             <ol className="carousel-indicators">
-                {segmentedAnimals.map((segment,index)=>
-                 <li key={index} data-target={`#${pastureId}`} data-slide-to={index}  className={!index ?"active": null}></li>) }
+                {segmentedAnimals.map((segment, index) =>
+                    <li key={index} data-target={`#${pastureId}`} data-slide-to={index} className={!index ? "active" : null}></li>)}
             </ol>
 
             <div className="carousel-inner">
-                {segmentedAnimals.map((segment,index)=>
-                    <SegmentAnimalCards index={index} segment={segment} /> )}
+                {segmentedAnimals.map((segment, index) =>
+                    <SegmentAnimalCards key={index} index={index} segment={segment} />)}
             </div>
 
             <a className="carousel-control left" href={`#${pastureId}`} data-slide="prev">
@@ -24,5 +24,5 @@ export default function CarouselSlide({pastureId, segmentedAnimals }) {
             </a>
 
         </div>
-    )  
+    )
 }

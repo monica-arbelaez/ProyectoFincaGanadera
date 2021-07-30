@@ -7,7 +7,7 @@ export default function SegmentAnimalCards({ segment, index }) {
         <div key={index} className={!index ?"item active": "item"}>
             <div className="row">
                 {segment.map((animal,index)=>
-                        <AnimalCard index={index} data={animal.dataSheet} />
+                        <AnimalCard key={index} index={index} data={animal.dataSheet} />
                 )}
             </div>
         </div>

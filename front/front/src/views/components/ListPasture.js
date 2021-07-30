@@ -3,14 +3,15 @@ import Carousel from './carousel/Carousel'
 
 
 export default function ListPasture({ pastures }) {
-    if (pastures.length){
+    if (pastures.length) {
         return (
             <div>
-                {pastures.map((animalList)=>
-                    <Carousel list={animalList} />  )}  
+                {pastures.map((animalList, i) =>
+                    <Carousel key={i} list={animalList} />)}
             </div>
-        )}
-    return(
+        )
+    }
+    return (
         <p>No hay animales registrados</p>
-    ) 
+    )
 }

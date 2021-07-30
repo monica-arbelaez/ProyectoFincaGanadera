@@ -5,7 +5,6 @@ const CarouselLayout = (props) => {
         <div className="container">
             <div className="row">
                 <div className="col-md-10 col-center">
-                    {/* <h3>{props.pastureId}</h3> */}
                         {props.children}
                 </div>
             </div>
