@@ -1,7 +1,7 @@
 const AnimalRepository = require("../../../domain/animal/animal-repository");
 const CrudMongoRepository = require("./adapter/crud-repository");
 
-const collection = "animals-test";
+const collection = "animals";
 
 class AnimalRepositoryMongo extends AnimalRepository {
   constructor() {
