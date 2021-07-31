@@ -5,10 +5,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Provider } from "react-redux";
 import store from "../../application/store";
-import Pasture from "../pages/Pasture";
+import CreatePasture from "../pages/CreatePasture";
 import { PrivateRoute } from "../routes/PrivateRoute";
 import { auth } from "../../infrastucture/firebase/firebase";
-import AnimalsByPasture from "../pages/Pastures";
+import AnimalsByPasture from "../pages/AnimalsByPasture";
 import '../css/style.css'
 import ListPasture from "../components/ListPasture";
 import Layout from "../components/Layout";
@@ -52,7 +52,7 @@ class AppRouter extends Component {
                                 exact
                                 path="/pasture"
                                 authenticated={this.state.authenticated}
-                                component={Pasture}
+                                component={CreatePasture}
                             />
                             <PrivateRoute
                                 exact

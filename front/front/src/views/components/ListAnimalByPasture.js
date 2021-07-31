@@ -2,11 +2,11 @@ import React from 'react'
 import Carousel from './carousel/Carousel'
 
 
-export default function ListAnimalByPasture({ pastures }) {
-    return (pastures.length) ?
+export default function ListAnimalByPasture({ animalsByPasture }) {
+    return (animalsByPasture.length) ?
         (
             <div>
-                {pastures.map((animalList, index) =>
+                {animalsByPasture.map((animalList, index) =>
                     <Carousel key={index} index={index} list={animalList} />)}
             </div>
         )

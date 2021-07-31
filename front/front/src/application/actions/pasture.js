@@ -23,7 +23,6 @@ export function createPastureAction(pasture) {
             await clienteAxios.post('/create-pasture', pasture);
             dispatch(createPastureSuccess(pasture))
         } catch (error) {
-            console.log(error);
             dispatch(createPastureError(error.message))
         }
     }

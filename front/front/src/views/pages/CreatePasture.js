@@ -6,7 +6,7 @@ import { createPastureAction } from '../../application/actions/pasture'
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 
-const Pasture = ({ createPastureAction }) => {
+const CreatePasture = ({ createPastureAction }) => {
     //Campos para crear agregado Animal
     //TODO: poner solo en un solo estado
     const [name, setName] = useState("")
@@ -111,4 +111,4 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ createPastureAction }, dispatch);
 };
 
-export default connect(null, mapDispatchToProps)(Pasture);
+export default connect(null, mapDispatchToProps)(CreatePasture);

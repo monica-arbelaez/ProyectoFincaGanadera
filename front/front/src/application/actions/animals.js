@@ -9,7 +9,7 @@ import {
     CREATE_ANIMAL_SUCCESS,
     CREATE_ANIMAL_ERROR,
     LIST_ANIMAL,
-    LIST_SUCCESSFUL_ANIMAL,
+    LIST_ANIMAL_SUCCESS,
     LIST_ANIMAL_ERROR,
 } from '../types/index'
 
@@ -74,7 +74,7 @@ const listAnimal = () => ({
 })
 
 const listSuccessAnimal = (animals) => ({
-    type: LIST_SUCCESSFUL_ANIMAL,
+    type: LIST_ANIMAL_SUCCESS,
     payload: animals
 })
 
