@@ -1,5 +1,4 @@
 const AnimalRepository = require("../../../infrastructure/repositories/mongo/animal-repository");
-const allAnimalsMock = require("../fakes/sorted-by-pasture-mock");
 const animalServices = require("../../animal/use-cases/index");
 const repository = new AnimalRepository();
 
