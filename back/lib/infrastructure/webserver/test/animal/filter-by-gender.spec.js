@@ -2,7 +2,7 @@ const axios = require("axios");
 
 const time = 10000;
 
-describe("Create animal API", () => {
+describe("Filter by gender Api", () => {
   beforeAll(() => {
 
     axios.defaults.baseURL = "http://localhost:3000/api/animals";
@@ -13,7 +13,7 @@ describe("Create animal API", () => {
     
   });
   it(
-    'GET get all animals successfully',
+    'GET filter by gender successfully',
       async () => {
         const gender = "MACHO"
 
