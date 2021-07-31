@@ -1,19 +1,19 @@
 const { uuid } = require('uuidv4');
-const Length = require("../values/length")
+const Longitude = require("../values/longitude")
 class Fence{
-    constructor(length){
+    constructor(longitude){
         this.id = uuid();
-        this.length = length;
+        this.longitude = longitude;
     }
 
-    updateLength(length){
-        if(length === undefined ){
+    updateLength(longitude){
+        if(longitude === undefined ){
             throw new Error("Para actualizar debes ingresar una longitud")
         }
-        if(!(length instanceof Length)){
+        if(!(longitude instanceof Longitude)){
             throw new Error("Para actualizar cerca debe introducir una instancia de Length")
         }
-        this.length = length
+        this.longitude = longitude
     }
 } 
 module.exports = Fence;

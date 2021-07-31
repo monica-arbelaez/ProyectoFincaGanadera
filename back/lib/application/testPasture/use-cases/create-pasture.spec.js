@@ -10,10 +10,10 @@ describe("create-pasture test",()=>{
           .mockImplementation(() => createpastureMock[0].pastureId);
     });it("Happypath create pasture", () => {
     //arrange
-    const { area, name, length, density} = createpastureMock[0];
+    const { area, name, longitude, density} = createpastureMock[0];
     //act
     const createPasture = pastureServices.createPasture(
-      { area, name, length, density},
+      { area, name, longitude, density},
       repository
     );
     //assert}
@@ -21,15 +21,15 @@ describe("create-pasture test",()=>{
     expect(createPasture).toBe(createpastureMock[0].pastureId);
     });
     it("Sadpath create pasture", () => {
-        const { areaFail, name, length, density } = createpastureMock[1];
+        const { areaFail, name, longitude, density } = createpastureMock[1];
         const area = areaFail;
         try {
-          pastureServices.createPasture({ name, length, density }, repository);
+          pastureServices.createPasture({ name, longitude, density }, repository);
         } catch (e) {
            expect(e).toEqual(new Error("Debes incluir un area"));
         }
         try {
-            pastureServices.createPasture({ area, name, length, density }, repository);
+            pastureServices.createPasture({ area, name, longitude, density }, repository);
           } catch (e) {
             expect(e).toEqual(new Error("El area debe ser numerica"));
           }

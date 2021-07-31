@@ -2,7 +2,7 @@ const Fence = require("./entities/fence");
 const Grass = require("./entities/grass");
 const Area = require("./values/area");
 const Density = require("./values/density");
-const Length = require("./values/length");
+const Longitude = require("./values/longitude");
 const Name = require("./values/name")
 
 class Pasture {
@@ -22,11 +22,11 @@ class Pasture {
     }
     this.grass = new Grass(density);
   }
-  associateFence(length) {
-    if (!(length instanceof Length)) {
+  associateFence(longitude) {
+    if (!(longitude instanceof Longitude)) {
       throw new Error("Para asociar cerca debe introducir una instancia de Length")
     }
-    this.fence = new Fence(length);
+    this.fence = new Fence(longitude);
   }
   updateDensityGrass(density) {
     if (typeof this.grass === "undefined") {

@@ -10,7 +10,7 @@ const pastureDensitySchema = joi.number().min(0).max(100);
 const createPastureSchema = {
   name:pastureNameSchema.required(),
   area: pastureAreaSchema.required(),
-  length: pastureLengthSchema.required(),
+  longitude: pastureLengthSchema.required(),
   density: pastureDensitySchema.required(),
 };
 

@@ -8,8 +8,8 @@ const messyList = [
             "name": "LA TAPIA2"
         },
         "fence": {
-            "length": {
-                "length": 200
+            "longitude": {
+                "longitude": 200
             }
         },
         "grass": {
@@ -28,8 +28,8 @@ const messyList = [
         },
         "fence": {
             "id": "6911ade1-a35d-4e68-b85a-869952b893fa",
-            "length": {
-                "length": 500
+            "longitude": {
+                "longitude": 500
             }
         },
         "grass": {
@@ -49,8 +49,8 @@ const messyList = [
         },
         "fence": {
             "id": "6911ade1-a35d-4e68-b85a-869952b893fa",
-            "length": {
-                "length": 100
+            "longitude": {
+                "longitude": 100
             }
         },
         "grass": {
@@ -73,8 +73,8 @@ const listaOrdenada = [
         },
         "fence": {
             "id": "6911ade1-a35d-4e68-b85a-869952b893fa",
-            "length": {
-                "length": 100
+            "longitude": {
+                "longitude": 100
             }
         },
         "grass": {
@@ -93,8 +93,8 @@ const listaOrdenada = [
             "name": "LA TAPIA2"
         },
         "fence": {
-            "length": {
-                "length": 200
+            "longitude": {
+                "longitude": 200
             }
         },
         "grass": {
@@ -113,8 +113,8 @@ const listaOrdenada = [
         },
         "fence": {
             "id": "6911ade1-a35d-4e68-b85a-869952b893fa",
-            "length": {
-                "length": 500
+            "longitude": {
+                "longitude": 500
             }
         },
         "grass": {

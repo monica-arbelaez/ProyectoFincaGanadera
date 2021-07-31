@@ -4,10 +4,8 @@ const pastureRepository = new PastureRepository();
 
 
 module.exports = async (req, res, next) => {
-    console.log("prueba")
     const { body: pasture } = req;
     try {
-      console.log(pasture);
       const createdPastureId = await pastureServices.createPasture(
         pasture,
         pastureRepository
