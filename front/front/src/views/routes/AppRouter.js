@@ -8,9 +8,9 @@ import store from "../../application/store";
 import Pasture from "../pages/Pasture";
 import { PrivateRoute } from "../routes/PrivateRoute";
 import { auth } from "../../infrastucture/firebase/firebase";
-import Pastures from "../pages/Pastures";
+import AnimalsByPasture from "../pages/Pastures";
 import '../css/style.css'
-import ListPastureItems from "../components/ListPastureItems";
+import ListPasture from "../components/ListPastureItems";
 import Layout from "../components/Layout";
 
 class AppRouter extends Component {
@@ -56,15 +56,15 @@ class AppRouter extends Component {
                             />
                             <PrivateRoute
                                 exact
-                                path="/order-by-length"
+                                path="/list-pasture"
                                 authenticated={this.state.authenticated}
-                                component={ListPastureItems}
+                                component={ListPasture}
                             />
                             <PrivateRoute
                                 exact
-                                path="/list-pasture"
+                                path="/list-animals-by-pasture"
                                 authenticated={this.state.authenticated}
-                                component={Pastures}
+                                component={AnimalsByPasture}
                             />
                             <Route exact path="/" component={Home} />
                         </Switch>

@@ -7,7 +7,11 @@ import Name from '../domain/pasture/model/values/name';
 import {
     CREATE_PASTURE,
     CREATE_PASTURE_SUCCESS,
-    CREATE_PASTURE_ERROR
+    CREATE_PASTURE_ERROR,
+    LIST_PASTURES,
+    LIST_PASTURES_SUCCESS,
+    LIST_PASTURES_ERROR
+
 } from '../types/index'
 
 export function createPastureAction(pasture) {
@@ -40,6 +44,19 @@ function getPasture(area, name, longitude, density) {
     return pasture;
 }
 
+export function listPastureAction() {
+    return async (dispatch) => {
+        dispatch(listPasture())
+        try {
+            const pastures = await clienteAxios.get('/list-pastures');
+            dispatch(listPastureSuccess(pastures.data.data))
+        } catch (error) {
+            console.log(error);
+            dispatch(listPastureError(error.message))
+        }
+    }
+}
+
 const createPasture = () => ({
     type: CREATE_PASTURE
 })
@@ -54,3 +71,16 @@ const createPastureError = (error) => ({
     payload: error
 })
 
+const listPasture = () => ({
+    type: LIST_PASTURES
+})
+
+const listPastureSuccess = (pastures) => ({
+    type: LIST_PASTURES_SUCCESS,
+    payload: pastures
+})
+
+const listPastureError = (error) => ({
+    type: LIST_PASTURES_ERROR,
+    payload: error
+})

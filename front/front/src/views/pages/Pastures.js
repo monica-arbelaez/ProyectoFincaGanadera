@@ -3,7 +3,7 @@ import clienteAxios from '../../infrastucture/api/axios';
 import ListPasture from '../components/ListPasture'
 import '../css/style.css'
 
-export default class Pastures extends React.Component {
+export default class AnimalsByPasture extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

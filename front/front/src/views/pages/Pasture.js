@@ -34,9 +34,9 @@ const Pasture = ({ createPastureAction }) => {
         deleteData();
         // handleClick()
     }
-    // const history = useHistory();
+    const history = useHistory();
     // function handleClick() {
-    //     history.push("/order-by-length");
+    //     history.push("/list-pasture");
     // }
     return (
         <Fragment>

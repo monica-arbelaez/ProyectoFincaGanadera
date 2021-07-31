@@ -5,10 +5,10 @@ import Density from './values/density'
 
 class Pasture {
     constructor(area, name, longitude, density) {
-        this.area = area;
-        this.name = name;
-        this.longitude = longitude;
-        this.density = density;
+        this.area = validateArea(area);
+        this.name = validateName(name);
+        this.longitude = validateLenght(longitude);
+        this.density = validateDensity(density);
     }
 }
 

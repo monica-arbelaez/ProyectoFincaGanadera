@@ -28,15 +28,13 @@ const Header = () => {
                 id="navbarNavAltMarkup"
               >
                 <div className="navbar-nav">
-                  <CreateAnimal />
+                  {/* <CreateAnimal /> */}
                   <Link className="nav-item nav-link mr-3"
                     to="/pasture">newPasture </Link>
                   <Link className="nav-item nav-link mr-3"
                     to="/list-pasture">List-Pasture </Link>
                   <Link className="nav-item nav-link mr-3"
-                    to="/order-by-density">order-by-density </Link>
-                  <Link className="nav-item nav-link mr-3"
-                    to="/order-by-length">order-by-length </Link>
+                    to="/list-animals-by-pasture">list-animals-by-pasture </Link>
                 </div>
               </div>
               <button
