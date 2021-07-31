@@ -10,7 +10,7 @@ import { PrivateRoute } from "../routes/PrivateRoute";
 import { auth } from "../../infrastucture/firebase/firebase";
 import AnimalsByPasture from "../pages/Pastures";
 import '../css/style.css'
-import ListPasture from "../components/ListPastureItems";
+import ListPasture from "../components/ListPasture";
 import Layout from "../components/Layout";
 
 class AppRouter extends Component {

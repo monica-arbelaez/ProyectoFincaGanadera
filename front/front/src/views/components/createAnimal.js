@@ -4,7 +4,7 @@ import '../css/style.css'
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 
-const CreatePasture = ({ createAnimalAction }) => {
+const CreateAnimal = ({ createAnimalAction }) => {
 
     //Campos para crear agregado Animal
     //TODO: poner solo un estado
@@ -110,4 +110,4 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ createAnimalAction }, dispatch);
 };
 
-export default connect(null, mapDispatchToProps)(CreatePasture);
+export default connect(null, mapDispatchToProps)(CreateAnimal);

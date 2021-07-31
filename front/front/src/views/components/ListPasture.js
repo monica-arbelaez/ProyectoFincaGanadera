@@ -1,17 +1,33 @@
-import React from 'react'
-import Carousel from './carousel/Carousel'
+import React, { useEffect } from 'react'
+import PastureItem from './PastureItem';
+import { listPastureAction } from '../../application/actions/pasture'
+import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
+import { getAllPastures } from '../../application/selector/pastures'
 
-
-export default function ListPasture({ pastures }) {
-    if (pastures.length) {
-        return (
-            <div>
-                {pastures.map((animalList, index) =>
-                    <Carousel key={index} index={index} list={animalList} />)}
-            </div>
-        )
-    }
+const ListPasture = ({ listPastureAction, pastures }) => {
+    useEffect(() => {
+        listPastureAction();
+    }, [listPastureAction])
     return (
-        <p>No hay animales registrados</p>
+        <div className="album py-5">
+            <div className="target">
+                {
+                    <PastureItem pastures={pastures} />
+                }
+            </div>
+        </div >
     )
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ listPastureAction }, dispatch);
+};
+
+const mapStateToProps = (state) => {
+    return {
+        pastures: getAllPastures(state)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListPasture);

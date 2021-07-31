@@ -2,7 +2,7 @@ import React from 'react'
 import pasture from '../pages/static/potrero.jpg'
 import '../css/style.css'
 
-const PastureItems = ({ pastures }) => {
+const PastureItem = ({ pastures }) => {
     return (
         <>
             {
@@ -27,4 +27,4 @@ const PastureItems = ({ pastures }) => {
     )
 }
 
-export default PastureItems;
+export default PastureItem;

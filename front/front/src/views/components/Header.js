@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { signInWithGoogle } from "../../infrastucture/firebase/auth";
 import { auth } from "../../infrastucture/firebase/firebase";
-import CreateAnimal from "./createAnimalModal";
+// import CreateAnimal from "./createAnimalModal";
 
 const Header = () => {
   const googleSignIn = async () => {
