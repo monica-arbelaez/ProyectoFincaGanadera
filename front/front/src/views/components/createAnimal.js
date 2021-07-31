@@ -4,13 +4,13 @@ import '../css/style.css'
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 
-const CreatePasture = ({ createAnimalAction }) => {
+const CreateAnimal = ({ createAnimalAction }) => {
 
     //Campos para crear agregado Animal
     //TODO: poner solo un estado
     const [breed, setBreed] = useState("")
     const [gender, setGender] = useState("")
-    const [age, setAge] = useState(0)
+    const [age, setAge] = useState()
 
     //Ejecutar action crear animal
     const createAnimal = (animal) => createAnimalAction(animal);
@@ -32,7 +32,8 @@ const CreatePasture = ({ createAnimalAction }) => {
     }
     return (
         <>
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#animalModal" data-whatever="@mdo">Crear Animal</button>
+            <button type="button" className="btn btn-primary" disabled="disabled" data-toggle="modal" data-target="#animalModal" data-whatever="@mdo"
+            >Crear Animal</button>
             <div className="modal fade" id="animalModal" tabIndex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
@@ -109,4 +110,4 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ createAnimalAction }, dispatch);
 };
 
-export default connect(null, mapDispatchToProps)(CreatePasture);
+export default connect(null, mapDispatchToProps)(CreateAnimal);

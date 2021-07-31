@@ -11,4 +11,4 @@ class Breed {
     }
 }
 
-module.exports = Breed;
+export default Breed;

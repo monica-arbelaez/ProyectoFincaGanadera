@@ -13,4 +13,4 @@ class Age {
     }
 }
 
-module.exports = Age;
+export default Age;
