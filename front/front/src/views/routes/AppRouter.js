@@ -40,11 +40,8 @@ class AppRouter extends Component {
 
     render() {
         return this.state.loading === true ? (
-            <div className="d-flex justify-content-center">
-                <div className="spinner-border" role="status">
-                    <span className="visually-hidden"></span>
-                </div>
-            </div>
+            <i class="fa fa-cog fa-spin fa-3x fa-fw"><span class="sr-only">Loading...</span></i>
+
         ) : (
             <Router>
                 <Provider store={store}>

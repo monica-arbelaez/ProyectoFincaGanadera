@@ -10,7 +10,7 @@ const CreatePasture = ({ createAnimalAction }) => {
     //TODO: poner solo un estado
     const [breed, setBreed] = useState("")
     const [gender, setGender] = useState("")
-    const [age, setAge] = useState(0)
+    const [age, setAge] = useState()
 
     //Ejecutar action crear animal
     const createAnimal = (animal) => createAnimalAction(animal);

@@ -265,4 +265,8 @@ body {
     align-items: center;
     justify-content: center;
   }
+
+  .formulario {
+    margin-top: 5rem;
+  }
 }

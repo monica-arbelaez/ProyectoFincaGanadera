@@ -15,9 +15,7 @@ const Pasture = ({ createPastureAction }) => {
     const [length, setLength] = useState(0)
 
     //Ejecutar action crear animal
-    const createPasture = (pasture) => {
-        createPastureAction(pasture)
-    };
+    const createPasture = (pasture) => createPastureAction(pasture);
 
     const deleteData = () => {
         setName("")
@@ -34,12 +32,12 @@ const Pasture = ({ createPastureAction }) => {
             density,
         })
         deleteData();
-        handleClick()
+        // handleClick()
     }
-    const history = useHistory();
-    function handleClick() {
-        history.push("/order-by-length");
-    }
+    // const history = useHistory();
+    // function handleClick() {
+    //     history.push("/order-by-length");
+    // }
     return (
         <Fragment>
             <div className="container">
@@ -66,7 +64,7 @@ const Pasture = ({ createPastureAction }) => {
                                     className="form-control"
                                     required={true}
                                     min={0}
-                                    max={10}
+                                    max={100}
                                     type="number"
                                     name="area"
                                     value={area}
@@ -79,7 +77,7 @@ const Pasture = ({ createPastureAction }) => {
                                     className="form-control"
                                     required={true}
                                     min={0}
-                                    max={10}
+                                    max={100}
                                     type="number"
                                     name="density"
                                     value={density}
@@ -99,9 +97,7 @@ const Pasture = ({ createPastureAction }) => {
                                     onChange={(e) => setLength(e.target.value)}
                                 />
                             </div>
-                            <button type="submit" className="btn btn-dark mb-2 float-right"
-
-                            >
+                            <button type="submit" className="btn btn-dark mb-2 float-right">
                                 Crear Potrero
                             </button>
                         </form>

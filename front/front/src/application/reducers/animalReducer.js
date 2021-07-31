@@ -7,7 +7,7 @@ import {
     // LIST_ANIMAL_ERROR,
 } from '../types/index.js'
 
-const initialState = {  
+const initialState = {
     animals: [],
     error: null
 };

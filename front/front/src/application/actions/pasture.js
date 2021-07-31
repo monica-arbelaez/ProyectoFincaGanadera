@@ -1,7 +1,9 @@
 import clienteAxios from '../../infrastucture/api/axios';
-// import Area from '../domain/pasture/model/values/area'
-// import Length from '../domain/pasture/model/values/density'
-// import Density from '../domain/pasture/model/values/length'
+import Pasture from '../domain/pasture/model/pasture';
+import Area from '../domain/pasture/model/values/area'
+import Length from '../domain/pasture/model/values/length'
+import Density from '../domain/pasture/model/values/density'
+import Name from '../domain/pasture/model/values/name';
 import {
     CREATE_PASTURE,
     CREATE_PASTURE_SUCCESS,
@@ -13,21 +15,27 @@ export function createPastureAction(pasture) {
         const { area, name, length, density } = pasture;
         dispatch(createPasture())
         try {
-            const pasture = getPasture(parseFloat(area), name, parseFloat(length), parseFloat(density));
+            const pasture = getPasture(area, name, length, density);
             await clienteAxios.post('/create-pasture', pasture);
             dispatch(createPastureSuccess(pasture))
         } catch (error) {
+            console.log(error);
             dispatch(createPastureError(error.message))
         }
     }
 }
 
 function getPasture(area, name, length, density) {
+    // const newPasture = new Pasture(
+    //     new Area(parseFloat(area)),
+    //     new Name(name),
+    //     new Length(parseFloat(length)),
+    //     new Density(parseFloat(density)))
     const pasture = {
-        name,
-        area,
-        length,
-        density
+        name: name,
+        area: parseFloat(area),
+        length: parseFloat(length),
+        density: parseFloat(density),
     }
     return pasture;
 }
