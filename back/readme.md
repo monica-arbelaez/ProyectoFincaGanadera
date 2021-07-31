@@ -1,6 +1,6 @@
 BASE_URL = https://app-finca-ganadera.herokuapp.com/api/animals
 
-post("/create") // crear animal => (array)
+post("/create") // crear animal => (id Creado)
 
 router.get("/sort-by-pasture"); // clasificar animales por potrero => (Array de arrays)
 

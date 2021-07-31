@@ -6,6 +6,7 @@ const Gender = require("../../../domain/animal/model/values/gender");
 
 const createAnimal = ( { pastureId = null, breed, age, gender },  animalRepository
 ) => {
+  console.log("llamado");
   const animal = new Animal(
     new Breed(breed),
     new Age(age),
