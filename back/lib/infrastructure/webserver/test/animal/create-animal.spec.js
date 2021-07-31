@@ -31,7 +31,7 @@ describe("Create animal API", () => {
       expect(response.data.dataId).toMatch(/^[0-9a-fA-F]{24}$/);
       // expect(animalServices.createAnimal).toHaveBeenCalled();
     },
-    time
+    15000
   );
   it(
     "POST Sadpath create an animal whit breed validation Error",
