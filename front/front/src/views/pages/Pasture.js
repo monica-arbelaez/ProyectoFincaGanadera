@@ -12,7 +12,7 @@ const Pasture = ({ createPastureAction }) => {
     const [name, setName] = useState("")
     const [area, setArea] = useState(0)
     const [density, setDensity] = useState(0)
-    const [length, setLength] = useState(0)
+    const [longitude, setLongitude] = useState(0)
 
     //Ejecutar action crear animal
     const createPasture = (pasture) => createPastureAction(pasture);
@@ -21,14 +21,14 @@ const Pasture = ({ createPastureAction }) => {
         setName("")
         setArea(0)
         setDensity(0)
-        setLength(0)
+        setLongitude(0)
     }
     const submitCreatePasture = (e) => {
         e.preventDefault();
         createPasture({
             area,
             name,
-            length,
+            longitude,
             density,
         })
         deleteData();
@@ -90,11 +90,10 @@ const Pasture = ({ createPastureAction }) => {
                                     className="form-control"
                                     required={true}
                                     min={0}
-                                    max={100}
                                     type="number"
-                                    name="length"
-                                    value={length}
-                                    onChange={(e) => setLength(e.target.value)}
+                                    name="longitude"
+                                    value={longitude}
+                                    onChange={(e) => setLongitude(e.target.value)}
                                 />
                             </div>
                             <button type="submit" className="btn btn-dark mb-2 float-right">

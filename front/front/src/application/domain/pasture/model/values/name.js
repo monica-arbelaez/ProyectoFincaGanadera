@@ -6,6 +6,7 @@ class Name {
         if (!(typeof name == "string")) {
             throw new Error("El nombre debe ser de tipo texto")
         }
+        this.name = name;
     }
 }
 

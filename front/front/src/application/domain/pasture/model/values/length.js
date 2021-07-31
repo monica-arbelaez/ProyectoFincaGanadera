@@ -1,15 +1,15 @@
 class Length {
-    constructor(length) {
-        if (length == null) {
+    constructor(longitude) {
+        if (longitude == null) {
             throw new Error("Debes incluir una longitud");
         }
-        if (!(typeof length == "number")) {
+        if (!(typeof longitude == "number")) {
             throw new Error("La longitud debe ser numerica")
         }
-        if (length <= 0) {
+        if (longitude <= 0) {
             throw new Error("Debes incluir una longitud mayor que cero");
         }
-        this.length = length;
+        this.longitude = longitude;
     }
 }
 export default Length;

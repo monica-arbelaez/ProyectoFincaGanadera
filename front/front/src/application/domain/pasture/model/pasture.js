@@ -4,10 +4,10 @@ import Leght from './values/length'
 import Density from './values/density'
 
 class Pasture {
-    constructor(area, name, lenght, density) {
+    constructor(area, name, longitude, density) {
         this.area = area;
         this.name = name;
-        this.lenght = lenght;
+        this.longitude = longitude;
         this.density = density;
     }
 }
@@ -27,11 +27,11 @@ function validateName(name) {
     return name;
 }
 
-function validateLenght(leght) {
-    if (!(leght instanceof Leght)) {
+function validateLenght(longitude) {
+    if (!(longitude instanceof Leght)) {
         throw new Error("Para agregar una longitud debe introducir una instancia de Leght")
     }
-    return leght;
+    return longitude;
 }
 
 function validateDensity(density) {

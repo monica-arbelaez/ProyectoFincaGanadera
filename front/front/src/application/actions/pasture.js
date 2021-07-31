@@ -12,10 +12,10 @@ import {
 
 export function createPastureAction(pasture) {
     return async (dispatch) => {
-        const { area, name, length, density } = pasture;
+        const { area, name, longitude, density } = pasture;
         dispatch(createPasture())
         try {
-            const pasture = getPasture(area, name, length, density);
+            const pasture = getPasture(area, name, longitude, density);
             await clienteAxios.post('/create-pasture', pasture);
             dispatch(createPastureSuccess(pasture))
         } catch (error) {
@@ -25,17 +25,17 @@ export function createPastureAction(pasture) {
     }
 }
 
-function getPasture(area, name, length, density) {
-    // const newPasture = new Pasture(
-    //     new Area(parseFloat(area)),
-    //     new Name(name),
-    //     new Length(parseFloat(length)),
-    //     new Density(parseFloat(density)))
+function getPasture(area, name, longitude, density) {
+    const newPasture = new Pasture(
+        new Area(parseFloat(area)),
+        new Name(name),
+        new Length(parseFloat(longitude)),
+        new Density(parseFloat(density)))
     const pasture = {
-        name: name,
-        area: parseFloat(area),
-        length: parseFloat(length),
-        density: parseFloat(density),
+        area: newPasture.area.area,
+        name: newPasture.name.name,
+        length: newPasture.longitude.longitude,
+        density: newPasture.density.density,
     }
     return pasture;
 }
