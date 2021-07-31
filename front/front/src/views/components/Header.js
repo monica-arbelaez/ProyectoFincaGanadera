@@ -49,11 +49,11 @@ const Header = () => {
             </>
           ) : (
             <button
-              className="btn btn-danger mr-3"
-              type="button"
+            className=" loginBootton" 
+            aria-hidden="true" 
+            type="button"
               onClick={() => googleSignIn()}
-            >
-              Login Google
+            ><i className="fa fa-user fa-lg fa-sm-5"  aria-hidden="true"></i>
             </button>
           )}
         </div>

@@ -265,4 +265,21 @@ body {
     align-items: center;
     justify-content: center;
   }
+  
 }
+.loginBootton{
+  display: block;
+  justify-content: center;
+  color: rgb(54, 54, 54);
+  padding: auto;
+  background-color: rgb(165, 165, 165);
+  border:none;
+  border-radius: 50%;
+
+
+}
+.loginBootton:hover {
+color: rgb(211, 211, 211);
+background-color: rgb(54, 54, 54);
+}
+
