@@ -5,9 +5,10 @@ const pastureRepository = new PastureRepositoryMongo();
 module.exports = async (req, res, next) => {
     try {
         const pastures = await pastureService.deletePastures(
-            pastureRepository
+           pastureRepository, req.params.pastureId
         );
         res.status(200).json({
+          data: pastures,
           message: "potrero fue eliminado",
         });
       } catch (err) {

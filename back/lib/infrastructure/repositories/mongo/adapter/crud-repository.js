@@ -9,13 +9,13 @@ async function create(collection, data) {
     .then((result) => result.insertedId);
 }
 async function remove(collection, id) {
-  const exist = await this.getById(id);
+  const exist = await this.getById(collection, id);
   if (!exist) {
     throw new Error("El potrero no existe");
   }
   return connect()
     .then((db) => {
-      return db.collection(collection).deleteOne({ _id: ObjectId(id) });
+      return db.collection(collection).deleteOne({"_id": ObjectId(id)});
     })
     .then(() => id);
 }

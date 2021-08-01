@@ -59,7 +59,7 @@ function routesApi(app) {
       await pastureControllers.listPastures(req, res, next)
   );
   router.delete(
-    "/delete-pasture/:id",
+    "/delete-pasture/:pastureId",
     async (req, res, next) =>
       await pastureControllers.deletePasture(req, res, next)
   );
