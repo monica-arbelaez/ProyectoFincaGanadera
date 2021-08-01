@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { signInWithGoogle } from "../../infrastucture/firebase/auth";
 import { auth } from "../../infrastucture/firebase/firebase";
-// import CreateAnimal from "./createAnimalModal";
 
 const Header = () => {
   const googleSignIn = async () => {
@@ -20,7 +19,6 @@ const Header = () => {
           <Link className="navbar-brand" to="/">
             Finca Ganadera
           </Link>
-
           {auth().currentUser ? (
             <>
               <div
@@ -28,7 +26,8 @@ const Header = () => {
                 id="navbarNavAltMarkup"
               >
                 <div className="navbar-nav">
-                  {/* <CreateAnimal /> */}
+                  <Link className="nav-item nav-link mr-3"
+                    to="/create-animal">newAnimal </Link>
                   <Link className="nav-item nav-link mr-3"
                     to="/pasture">newPasture </Link>
                   <Link className="nav-item nav-link mr-3"

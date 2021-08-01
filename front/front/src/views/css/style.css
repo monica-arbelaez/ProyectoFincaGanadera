@@ -63,7 +63,7 @@ footer {
 
 .formulario {
   background-color: rgba(255, 255, 255, 0.507);
-  margin-top: 35rem;
+  margin-top: 10rem;
   border-radius: 1rem;
 }
 
@@ -228,6 +228,9 @@ body {
     margin: 0 auto;
     padding: 0 6rem;
   }
+  .formulario {
+    margin-top: 18rem;
+  }
 }
 @media screen and (max-width: 767px) {
   .target {
@@ -246,6 +249,9 @@ body {
 
   .form-control {
     width: 100%;
+  }
+  .formulario {
+    margin-top: 10rem;
   }
 }
 
@@ -267,6 +273,6 @@ body {
   }
 
   .formulario {
-    margin-top: 5rem;
+    margin-top: 10rem;
   }
 }

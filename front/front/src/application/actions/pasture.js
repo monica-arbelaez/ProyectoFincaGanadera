@@ -10,8 +10,13 @@ import {
     CREATE_PASTURE_ERROR,
     LIST_PASTURES,
     LIST_PASTURES_SUCCESS,
-    LIST_PASTURES_ERROR
-
+    LIST_PASTURES_ERROR,
+    SORT_PASTURE_BY_LENGTH,
+    SORT_PASTURE_BY_LENGTH_SUCCESS,
+    SORT_PASTURE_BY_LENGTH_ERROR,
+    SORT_PASTURE_BY_DENSITY,
+    SORT_PASTURE_BY_DENSITY_SUCCESS,
+    SORT_PASTURE_BY_DENSITY_ERROR
 } from '../types/index'
 
 export function createPastureAction(pasture) {
@@ -21,7 +26,10 @@ export function createPastureAction(pasture) {
         try {
             const pasture = getPasture(area, name, longitude, density);
             await clienteAxios.post('/create-pasture', pasture);
-            dispatch(createPastureSuccess(pasture))
+            dispatch(createPastureSuccess(pasture));
+            setTimeout(() => {
+                window.location.href = "/list-pasture";
+            }, 1000);
         } catch (error) {
             dispatch(createPastureError(error.message))
         }
@@ -37,7 +45,7 @@ function getPasture(area, name, longitude, density) {
     const pasture = {
         area: newPasture.area.area,
         name: newPasture.name.name,
-        length: newPasture.longitude.longitude,
+        longitude: newPasture.longitude.longitude,
         density: newPasture.density.density,
     }
     return pasture;
@@ -56,30 +64,85 @@ export function listPastureAction() {
     }
 }
 
-const createPasture = () => ({
+export function sortPastureByLength() {
+    return async (dispatch) => {
+        dispatch(dispatch(pastureByLength())
+            ())
+        try {
+            const pastures = await clienteAxios.get('/sort-by-length');
+            dispatch(pastureByLengthSuccess(pastures.data.data))
+        } catch (error) {
+            console.log(error);
+            dispatch(pastureByLengthError(error.message))
+        }
+    }
+}
+
+export function sortPastureByDensity() {
+    return async (dispatch) => {
+        dispatch(pastureByDensity())
+        try {
+            const pastures = await clienteAxios.get('/sort-by-density');
+            dispatch(pastureByDensitySuccess(pastures.data.data))
+        } catch (error) {
+            console.log(error);
+            dispatch(pastureByDensityError(error.message))
+        }
+    }
+}
+
+export const createPasture = () => ({
     type: CREATE_PASTURE
 })
 
-const createPastureSuccess = (pasture) => ({
+export const createPastureSuccess = (pasture) => ({
     type: CREATE_PASTURE_SUCCESS,
     payload: pasture
 })
 
-const createPastureError = (error) => ({
+export const createPastureError = (error) => ({
     type: CREATE_PASTURE_ERROR,
     payload: error
 })
 
-const listPasture = () => ({
+export const listPasture = () => ({
     type: LIST_PASTURES
 })
 
-const listPastureSuccess = (pastures) => ({
+export const listPastureSuccess = (pastures) => ({
     type: LIST_PASTURES_SUCCESS,
     payload: pastures
 })
 
-const listPastureError = (error) => ({
+export const listPastureError = (error) => ({
     type: LIST_PASTURES_ERROR,
+    payload: error
+})
+
+export const pastureByLength = () => ({
+    type: SORT_PASTURE_BY_LENGTH
+})
+
+export const pastureByLengthSuccess = (pastures) => ({
+    type: SORT_PASTURE_BY_LENGTH_SUCCESS,
+    payload: pastures
+})
+
+export const pastureByLengthError = (error) => ({
+    type: SORT_PASTURE_BY_LENGTH_ERROR,
+    payload: error
+})
+
+export const pastureByDensity = () => ({
+    type: SORT_PASTURE_BY_DENSITY
+})
+
+export const pastureByDensitySuccess = (pastures) => ({
+    type: SORT_PASTURE_BY_DENSITY_SUCCESS,
+    payload: pastures
+})
+
+export const pastureByDensityError = (error) => ({
+    type: SORT_PASTURE_BY_DENSITY_ERROR,
     payload: error
 })

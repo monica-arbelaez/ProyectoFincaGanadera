@@ -39,7 +39,7 @@ const CreatePasture = ({ createPastureAction }) => {
     //     history.push("/list-pasture");
     // }
     return (
-        <Fragment>
+        <>
             <div className="container">
                 <div className="row d-flex justify-content-center">
                     <div className="col-xs-7 col-sm-8 col-md-9 form formulario">
@@ -96,14 +96,14 @@ const CreatePasture = ({ createPastureAction }) => {
                                     onChange={(e) => setLongitude(e.target.value)}
                                 />
                             </div>
-                            <button type="submit" className="btn btn-dark mb-2 float-right">
+                            <button type="submit" className="btn btn-primary mb-2 float-right">
                                 Crear Potrero
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
-        </Fragment>
+        </>
     )
 }
 
