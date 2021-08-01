@@ -1,8 +1,19 @@
-import React from 'react'
 import pasture from '../pages/static/potrero.jpg'
 import '../css/style.css'
+import { deletePastureAction } from '../../application/actions/pasture'
+import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
+/**
+ *TODO: Validar cuando se presiones un boton
+ Para cambiar el boton de la variable
+ style={{ color: 'red' }}
+ */
 
-const PastureItem = ({ pastures }) => {
+const PastureItem = ({ deletePastureAction, pastures }) => {
+
+    const deletePasture = (id) => {
+        deletePastureAction(id)
+    }
     return (
         <>
             {
@@ -14,10 +25,12 @@ const PastureItem = ({ pastures }) => {
                                 <h5 className="card-title">{potrero.name.name}</h5>
                                 <hr />
                                 <p className="card-text">Area: {potrero.area.area}</p>
-                                <p className="card-text">Longitud [cerca]: {potrero.fence.longitude.longitude} mts.</p>
+                                <p className="card-text ">Longitud [cerca]: {potrero.fence.longitude.Longitude} mts.</p>
                                 <p className="card-text">Densidad [pasto]: {potrero.grass.density.density}</p>
 
-                                <button type="button" className="btn btn-danger float-right ">Delete</button>
+                                <button type="button" className="btn btn-danger float-right "
+                                    onClick={() => deletePasture(potrero._id)}
+                                >Delete</button>
                             </div>
                         </div>
                     )
@@ -26,5 +39,14 @@ const PastureItem = ({ pastures }) => {
         </>
     )
 }
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ deletePastureAction }, dispatch);
+};
 
-export default PastureItem;
+// const mapStateToProps = (state) => {
+//     return {
+//         pastures: getAllPastures(state)
+//     }
+// }
+
+export default connect(null, mapDispatchToProps)(PastureItem);

@@ -10,7 +10,6 @@ export function listAnimalByPastureAction() {
         dispatch(listAnimalByPasture())
         try {
             const data = await (await clienteAxios.get('/sort-by-pasture')).data;
-            console.log(data.data);
             const listData = [];
             data.data.forEach((data) => {
                 listData.push(data)

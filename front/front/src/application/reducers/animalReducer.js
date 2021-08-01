@@ -2,9 +2,9 @@ import {
     CREATE_ANIMAL,
     CREATE_ANIMAL_SUCCESS,
     CREATE_ANIMAL_ERROR,
-    // LIST_ANIMAL,
-    // LIST_SUCCESSFUL_ANIMAL,
-    // LIST_ANIMAL_ERROR,
+    LIST_ANIMAL,
+    LIST_ANIMAL_SUCCESS,
+    LIST_ANIMAL_ERROR,
 } from '../types/index.js'
 
 const initialState = {
@@ -25,6 +25,18 @@ const animalReducer = (state = initialState, action) => {
                 animals: [...state.animals, action.payload]
             };
         case CREATE_ANIMAL_ERROR:
+            return { ...state, error: action.payload };
+        case LIST_ANIMAL:
+            return {
+                ...state,
+            };
+        case LIST_ANIMAL_SUCCESS:
+            return {
+                ...state,
+                error: null,
+                animals: action.payload
+            };
+        case LIST_ANIMAL_ERROR:
             return { ...state, error: action.payload };
         default:
             return state;

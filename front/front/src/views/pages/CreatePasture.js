@@ -1,6 +1,5 @@
-import React, { Fragment, useState } from 'react'
-import potrero from './static/potrero.jpg'
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react'
+// import { useHistory } from "react-router-dom";
 import '../css/style.css'
 import { createPastureAction } from '../../application/actions/pasture'
 import { connect } from 'react-redux';
@@ -34,7 +33,7 @@ const CreatePasture = ({ createPastureAction }) => {
         deleteData();
         // handleClick()
     }
-    const history = useHistory();
+    // const history = useHistory();
     // function handleClick() {
     //     history.push("/list-pasture");
     // }

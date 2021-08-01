@@ -48,37 +48,37 @@ export function listAnimalsAction() {
         dispatch(listAnimal());
         try {
             const animals = await clienteAxios.get('/animals');
-            dispatch(listSuccessAnimal(animals));
+            dispatch(listAnimalSuccess(animals));
         } catch (error) {
             dispatch(listAnimalError(error.message));
         }
     }
 }
 
-const createAnimal = () => ({
+export const createAnimal = () => ({
     type: CREATE_ANIMAL
 })
 
-const createAnimalSuccess = (animal) => ({
+export const createAnimalSuccess = (animal) => ({
     type: CREATE_ANIMAL_SUCCESS,
     payload: animal
 })
 
-const createAnimalError = (error) => ({
+export const createAnimalError = (error) => ({
     type: CREATE_ANIMAL_ERROR,
     payload: error
 })
 
-const listAnimal = () => ({
+export const listAnimal = () => ({
     type: LIST_ANIMAL
 })
 
-const listSuccessAnimal = (animals) => ({
+export const listAnimalSuccess = (animals) => ({
     type: LIST_ANIMAL_SUCCESS,
     payload: animals
 })
 
-const listAnimalError = (error) => ({
+export const listAnimalError = (error) => ({
     type: LIST_ANIMAL_ERROR,
     payload: error
 })

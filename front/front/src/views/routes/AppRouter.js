@@ -41,7 +41,7 @@ class AppRouter extends Component {
 
     render() {
         return this.state.loading === true ? (
-            <i class="fa fa-cog fa-spin fa-3x fa-fw"><span class="sr-only">Loading...</span></i>
+            <i className="fa fa-cog fa-spin fa-3x fa-fw"><span className="sr-only">Loading...</span></i>
 
         ) : (
             <Router>
