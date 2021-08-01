@@ -53,11 +53,12 @@ function routesApi(app) {
     async (req, res, next) =>
       await pastureControllers.sortPastureByLength(req, res, next)
   );
-  router.get(
-    "/list-pastures",
+  router.delete(
+    "/delete-pasture/:pastureId",
     async (req, res, next) =>
-      await pastureControllers.listPastures(req, res, next)
+      await pastureControllers.deletePasture(req, res, next)
   );
+
 }
 
 module.exports = routesApi;
