@@ -42,6 +42,7 @@ const pastureReducer = (state = initialState, action) => {
         case DELETE_PASTURE_SUCCESS:
             return {
                 ...state,
+                payload: action.payload,
                 error: null
             };
         case DELETE_PASTURE_ERROR:

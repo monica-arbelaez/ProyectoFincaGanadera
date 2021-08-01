@@ -2,14 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { signInWithGoogle } from "../../infrastucture/firebase/auth";
 import { auth } from "../../infrastucture/firebase/firebase";
+import Swal from 'sweetalert2';
 
 const Header = () => {
-  const googleSignIn = async () => {
-    try {
-      await signInWithGoogle();
-    } catch (error) {
-      this.setState({ error: error.message });
-    }
+  const googleSignIn = async (event) => {
+    event.preventDefault();
+    signInWithGoogle().then(response => {
+      Swal.fire(
+        'Correcto',
+        response.user.displayName,
+        'success'
+      )
+    }).catch(error => {
+      Swal.fire(
+        error.message,
+      )
+    })
   };
 
   return (
@@ -48,7 +56,7 @@ const Header = () => {
             <button
               className="btn btn-danger mr-3"
               type="button"
-              onClick={() => googleSignIn()}
+              onClick={googleSignIn}
             >
               Login Google
             </button>

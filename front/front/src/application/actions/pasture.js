@@ -52,6 +52,9 @@ export function deletePastureAction(id) {
             )
             dispatch(deletePastureSuccess());
         } catch (error) {
+            Swal.fire(
+                error.message,
+            )
             dispatch(deletePastureError(error.message))
         }
     }

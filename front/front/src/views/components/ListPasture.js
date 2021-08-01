@@ -1,21 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PastureItem from './PastureItem';
 import { listPastureAction, sortPastureByLengthAction, sortPastureByDensityAction } from '../../application/actions/pasture'
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import { getAllPastures } from '../../application/selector/pastures'
 const ListPasture = ({ sortPastureByDensityAction, sortPastureByLengthAction, pastures }) => {
+    useEffect(() => {
+        sortPastureByLengthAction()
+        sortPastureByDensityAction()
+    }, [sortPastureByDensityAction, sortPastureByLengthAction])
     const listarLength = () => sortPastureByLengthAction();
     // const listarLength = () => sortPastureByLengthAction();
     const listarDensity = () => sortPastureByDensityAction();
     return (
         <>
             <button className="btn btn-primary mb-2 float-right"
-                onClick={() => listarDensity()}
+            // onClick={() => listarDensity()}
             >
                 Ordenar por Densidad</button>
             <button className="btn btn-primary mb-2 float-right"
-                onClick={() => listarLength()}
+            // onClick={() => listarLength()}
             >
                 Listar Potreros</button>
             {/* <button className="btn btn-primary mb-2 float-right"
