@@ -14,11 +14,11 @@ const ListPasture = ({ sortPastureByDensityAction, sortPastureByLengthAction, pa
     const listarDensity = () => sortPastureByDensityAction();
     return (
         <>
-            <button className="btn btn-primary mb-2 float-right"
+            <button className="btn btns mb-2 float-left"
             // onClick={() => listarDensity()}
             >
                 Ordenar por Densidad</button>
-            <button className="btn btn-primary mb-2 float-right"
+            <button className="btn btns mb-2 float-left"
             // onClick={() => listarLength()}
             >
                 Listar Potreros</button>
