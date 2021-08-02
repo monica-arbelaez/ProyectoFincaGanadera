@@ -33,7 +33,7 @@ function routesApi(app) {
     async (req, res, next) =>
       await animalsControllers.vaccinateAnimal(req, res, next)
   );
-  router.get("/", async (req, res, next) =>
+  router.get("/all", async (req, res, next) =>
     animalsControllers.getAllAnimals(req, res, next)
   );
   
