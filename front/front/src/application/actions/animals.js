@@ -57,7 +57,7 @@ export function listAnimalsAction() {
         dispatch(listAnimal());
         try {
             const animals = await clienteAxios.get('/');
-            dispatch(listAnimalSuccess(animals));
+            dispatch(listAnimalSuccess(animals.data.data));
         } catch (error) {
             dispatch(listAnimalError(error.message));
         }

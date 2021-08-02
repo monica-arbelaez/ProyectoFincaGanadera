@@ -13,6 +13,7 @@ import '../css/style.css'
 import ListPasture from "../components/ListPasture";
 import Layout from "../components/Layout";
 import createAnimal from "../pages/CreateAnimal";
+import ListAnimal from "../components/ListAnimal";
 
 /**TODO: 
  * 
@@ -63,6 +64,12 @@ class AppRouter extends Component {
                                 path="/create-animal"
                                 authenticated={this.state.authenticated}
                                 component={createAnimal}
+                            />
+                            <PrivateRoute
+                                exact
+                                path="/animals"
+                                authenticated={this.state.authenticated}
+                                component={ListAnimal}
                             />
                             <PrivateRoute
                                 exact
