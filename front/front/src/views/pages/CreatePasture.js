@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import '../css/style.css'
 import { createPastureAction } from '../../application/actions/pasture'
 import { connect } from 'react-redux';
@@ -31,7 +31,6 @@ const CreatePasture = ({ createPastureAction }) => {
             density,
         })
         deleteData();
-        // handleClick()
     }
     // const history = useHistory();
     // function handleClick() {
@@ -95,7 +94,9 @@ const CreatePasture = ({ createPastureAction }) => {
                                     onChange={(e) => setLongitude(e.target.value)}
                                 />
                             </div>
-                            <button type="submit" className="btn btn-primary mb-2 float-right">
+                            <button type="submit" className="btn btn-primary mb-2 float-right"
+                            // onClick={() => handleClick()}
+                            >
                                 Crear Potrero
                             </button>
                         </form>
