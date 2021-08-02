@@ -4,6 +4,7 @@ const { config } = require("../config/index");
 const routesApi = require("./routes/api-routes");
 const { logErrors, errorHandler } = require('./utils/middleware/error-handler');
 
+
 const app = express();
 app.use(express.json());
 app.use(cors());

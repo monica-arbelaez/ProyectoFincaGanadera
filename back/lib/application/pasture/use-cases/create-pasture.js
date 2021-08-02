@@ -4,10 +4,9 @@ const Density = require("../../../domain/pasture/model/values/density");
 const Length = require("../../../domain/pasture/model/values/length");
 const Name = require("../../../domain/pasture/model/values/name");
 
-module.exports = ( { id = null,name,area,density,length},  pastureRepository
+module.exports = ( { name,area,density,length},  pastureRepository
     ) => {
       const pasture = new Pasture(
-        null,
         new Area(area),
         new Name(name)
       );

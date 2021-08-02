@@ -14,5 +14,6 @@ class PastureRepository{
     getByPastureId(pastureId){
         throw new Error("Error metodo getByPastureId no implemenado")  
     }
+    
 }
 module.exports = PastureRepository;

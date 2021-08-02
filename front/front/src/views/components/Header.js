@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { signInWithGoogle } from "../../infrastucture/firebase/auth";
 import { auth } from "../../infrastucture/firebase/firebase";
 import Swal from 'sweetalert2';
+import "../css/style.css"
 
 const Header = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+  const menuOpen = () => {
+    setOpenMenu(!openMenu)
+  }
   const googleSignIn = async (event) => {
     event.preventDefault();
     signInWithGoogle().then(response => {
@@ -62,7 +67,24 @@ const Header = () => {
             </button>
           )}
         </div>
+        <span className="icon-bar" id="menu-icon" onClick={menuOpen}>
+            <i className="fas fa-bars"></i>
+          </span>
       </nav>
+      {openMenu && (
+        <div>
+          <div className="navbar-nav">
+            <Link className="styleNav nav-item nav-link mr-3"
+              to="/create-animal">newAnimal </Link>
+            <Link className="styleNav nav-item nav-link mr-3"
+              to="/pasture">newPasture </Link>
+            <Link className="styleNav nav-item nav-link mr-3"
+              to="/list-pasture">List-Pasture </Link>
+            <Link className="styleNav nav-item nav-link mr-3"
+              to="/list-animals-by-pasture">list-animals-by-pasture </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

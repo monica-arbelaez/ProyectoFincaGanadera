@@ -23,5 +23,6 @@ class PastureRepositoryMongo extends PastureRepository {
   async getByPastureId(pastureId) {
     return CrudMongoRepository.getById(collection, pastureId);
   }
+  
 }
 module.exports = PastureRepositoryMongo;

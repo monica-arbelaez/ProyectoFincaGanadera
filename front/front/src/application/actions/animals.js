@@ -24,11 +24,10 @@ export function createAnimalAction(animal) {
     try {
       const animal = getAnimal(breed, gender, age);
       const response = await clienteAxios.post("/create", animal);
-      console.log(response);
       Swal.fire("Correcto", response.data.message, "success");
       dispatch(createAnimalSuccess(animal));
     } catch (error) {
-      Swal.fire(error.message.error);
+      Swal.fire(error.message);
       dispatch(createAnimalError(error.message));
     }
   };
