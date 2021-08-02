@@ -1,7 +1,9 @@
 import React from "react";
 import { vaccinateAnimalAction } from "../../../application/actions/animals";
+import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
 
-export default function AnimalCard({ index, data }) {
+const AnimalCard = ({ vaccinateAnimalAction, index, data }) => {
   const vaccinate = (data) => vaccinateAnimalAction(data);
 
   return (
@@ -26,3 +28,9 @@ export default function AnimalCard({ index, data }) {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ vaccinateAnimalAction }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(AnimalCard);

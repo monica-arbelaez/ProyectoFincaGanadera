@@ -5,11 +5,15 @@ import {
     LIST_ANIMAL,
     LIST_ANIMAL_SUCCESS,
     LIST_ANIMAL_ERROR,
+    VACCINATE_ANIMAL,
+  VACCINATE_ANIMAL_SUCCESS,
+  VACCINATE_ANIMAL_ERROR,
 } from '../types/index.js'
 
 const initialState = {
     animals: [],
-    error: null
+    error: null,
+    dataId: null
 };
 
 const animalReducer = (state = initialState, action) => {
@@ -38,8 +42,21 @@ const animalReducer = (state = initialState, action) => {
             };
         case LIST_ANIMAL_ERROR:
             return { ...state, error: action.payload };
+            case VACCINATE_ANIMAL:
+            return {
+                ...state,
+            };
+        case VACCINATE_ANIMAL_SUCCESS:
+            return {
+                ...state,
+                error: null,
+                dataId: action.payload
+            };
+        case VACCINATE_ANIMAL_ERROR:
+            return { ...state, error: action.payload };
         default:
             return state;
+
     }
 }
 

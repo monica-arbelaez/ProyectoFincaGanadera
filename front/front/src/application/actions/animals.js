@@ -12,7 +12,9 @@ import {
   LIST_ANIMAL,
   LIST_ANIMAL_SUCCESS,
   LIST_ANIMAL_ERROR,
-  // VACCINATE_ANIMAL
+  VACCINATE_ANIMAL,
+  VACCINATE_ANIMAL_SUCCESS,
+  VACCINATE_ANIMAL_ERROR,
 } from "../types/index";
 
 export function createAnimalAction(animal) {
@@ -22,10 +24,11 @@ export function createAnimalAction(animal) {
     try {
       const animal = getAnimal(breed, gender, age);
       const response = await clienteAxios.post("/create", animal);
+      console.log(response);
       Swal.fire("Correcto", response.data.message, "success");
       dispatch(createAnimalSuccess(animal));
     } catch (error) {
-      Swal.fire(error.message);
+      Swal.fire(error.message.error);
       dispatch(createAnimalError(error.message));
     }
   };
@@ -56,25 +59,25 @@ export function listAnimalsAction() {
     }
   };
 }
-export async function vaccinateAnimalAction(animalId) {
-//   return async (dispatch) => {
-    console.log(animalId);
-    const vaccinate = {
-      isVaccinated: true,
-    };
+export function vaccinateAnimalAction(animalId) {
+  return async (dispatch) => {
+    dispatch(vaccinateAnimal());
     try {
+      const vaccinate = {
+        isVaccinated: true,
+      };
       const response = await clienteAxios.patch(
         `/${animalId}/vaccinate`,
         vaccinate
       );
+
+      dispatch(vaccinateAnimalSuccess(response.data.dataId));
       Swal.fire("Correcto", response.data.message, "success");
-      console.log(response);
-    } catch(error){
-        Swal.fire(error.message);
+    } catch (error) {
+      dispatch(vaccinateAnimalError(error.message));
+      Swal.fire(error);
     }
-    // type: VACCINATE_ANIMAL
-    // payload: animalId
-//   };
+  };
 }
 
 export const createAnimal = () => ({
@@ -102,5 +105,19 @@ export const listAnimalSuccess = (animals) => ({
 
 export const listAnimalError = (error) => ({
   type: LIST_ANIMAL_ERROR,
+  payload: error,
+});
+
+export const vaccinateAnimal = () => ({
+  type: VACCINATE_ANIMAL,
+});
+
+export const vaccinateAnimalSuccess = (dataId) => ({
+  type: VACCINATE_ANIMAL_SUCCESS,
+  payload: dataId,
+});
+
+export const vaccinateAnimalError = (error) => ({
+  type: VACCINATE_ANIMAL_ERROR,
   payload: error,
 });
