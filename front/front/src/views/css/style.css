@@ -60,7 +60,7 @@ footer {
 }
 .btns:focus{
   color: rgba(255,255,255);
-  background: rgba(160, 103, 103, 0.8);
+  background: rgba(95, 62, 62, 0.8);
   outline: none;
   box-shadow:none;
 }
