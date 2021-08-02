@@ -70,24 +70,15 @@ const Header = () => {
           <div className="navbar-nav">
             <Link
               className="styleNav nav-item nav-link mr-3"
-              to="/create-animal"
-            >
-              newAnimal{" "}
-            </Link>
-            <Link className="styleNav nav-item nav-link mr-3" to="/pasture">
-              newPasture{" "}
-            </Link>
-            <Link
-              className="styleNav nav-item nav-link mr-3"
               to="/list-pasture"
             >
-              List-Pasture{" "}
+              POTREROS{" "}
             </Link>
             <Link
               className="styleNav nav-item nav-link mr-3"
-              to="/list-animals-by-pasture"
+              to="/list-animals"
             >
-              list-animals-by-pasture{" "}
+              ANIMALES{" "}
             </Link>
           </div>
         </div>
