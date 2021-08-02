@@ -5,6 +5,7 @@ import Length from '../domain/pasture/model/values/length'
 import Density from '../domain/pasture/model/values/density'
 import Name from '../domain/pasture/model/values/name';
 import Swal from 'sweetalert2';
+
 import {
     CREATE_PASTURE,
     CREATE_PASTURE_SUCCESS,
@@ -33,7 +34,7 @@ export function createPastureAction(pasture) {
             dispatch(createPastureSuccess(pasture));
             setTimeout(() => {
                 window.location.href = "/list-pasture";
-            }, 1000);
+            }, 500);
         } catch (error) {
             dispatch(createPastureError(error.message))
         }
@@ -51,6 +52,7 @@ export function deletePastureAction(id) {
                 'success'
             )
             dispatch(deletePastureSuccess());
+            dispatch(listPastureAction())
         } catch (error) {
             Swal.fire(
                 error.message,
@@ -81,8 +83,15 @@ export function listPastureAction() {
         try {
             const pastures = await clienteAxios.get('/list-pasture');
             dispatch(listPastureSuccess(pastures.data.data))
+            Swal.fire(
+                'Correcto',
+                pastures.data.message,
+                'success'
+            )
         } catch (error) {
-            console.log(error);
+            Swal.fire(
+                error.message,
+            )
             dispatch(listPastureError(error.message))
         }
     }
@@ -94,7 +103,15 @@ export function sortPastureByLengthAction() {
         try {
             const pastures = await clienteAxios.get('/sort-by-length');
             dispatch(pastureByLengthSuccess(pastures.data.data))
+            Swal.fire(
+                'Correcto',
+                pastures.data.message,
+                'success'
+            )
         } catch (error) {
+            Swal.fire(
+                error.message,
+            )
             dispatch(pastureByLengthError(error.message))
         }
     }
@@ -106,7 +123,15 @@ export function sortPastureByDensityAction() {
         try {
             const pastures = await clienteAxios.get('/sort-by-density');
             dispatch(pastureByDensitySuccess(pastures.data.data))
+            Swal.fire(
+                'Correcto',
+                pastures.data.message,
+                'success'
+            )
         } catch (error) {
+            Swal.fire(
+                error.message,
+            )
             dispatch(pastureByDensityError(error.message))
         }
     }

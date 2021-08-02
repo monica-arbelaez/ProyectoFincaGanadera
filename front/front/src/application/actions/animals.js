@@ -3,6 +3,7 @@ import Animal from '../domain/animal/model/Animal'
 import Breed from '../domain/animal/model/values/breed';
 import Gender from '../domain/animal/model/values/gender';
 import Age from '../domain/animal/model/values/age';
+import Swal from 'sweetalert2';
 
 import {
     CREATE_ANIMAL,
@@ -21,9 +22,17 @@ export function createAnimalAction(animal) {
         dispatch(createAnimal());
         try {
             const animal = getAnimal(breed, gender, age);
-            await clienteAxios.post('/create', animal);
+            const response = await clienteAxios.post('/create', animal);
+            Swal.fire(
+                'Correcto',
+                response.data.message,
+                'success'
+            )
             dispatch(createAnimalSuccess(animal))
         } catch (error) {
+            Swal.fire(
+                error.message
+            )
             dispatch(createAnimalError(error.message))
         }
     }
@@ -47,7 +56,7 @@ export function listAnimalsAction() {
     return async (dispatch) => {
         dispatch(listAnimal());
         try {
-            const animals = await clienteAxios.get('/animals');
+            const animals = await clienteAxios.get('/');
             dispatch(listAnimalSuccess(animals));
         } catch (error) {
             dispatch(listAnimalError(error.message));

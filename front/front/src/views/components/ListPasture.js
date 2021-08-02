@@ -4,29 +4,25 @@ import { listPastureAction, sortPastureByLengthAction, sortPastureByDensityActio
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import { getAllPastures } from '../../application/selector/pastures'
-const ListPasture = ({ sortPastureByDensityAction, sortPastureByLengthAction, pastures }) => {
-    useEffect(() => {
-        sortPastureByLengthAction()
-        sortPastureByDensityAction()
-    }, [sortPastureByDensityAction, sortPastureByLengthAction])
+const ListPasture = ({ listPastureAction, sortPastureByDensityAction, sortPastureByLengthAction, pastures }) => {
+
+    const listar = () => listPastureAction();
     const listarLength = () => sortPastureByLengthAction();
-    // const listarLength = () => sortPastureByLengthAction();
     const listarDensity = () => sortPastureByDensityAction();
     return (
         <>
             <button className="btn btn-primary mb-2 float-right"
-            // onClick={() => listarDensity()}
+                onClick={() => listarDensity()}
             >
                 Ordenar por Densidad</button>
             <button className="btn btn-primary mb-2 float-right"
-            // onClick={() => listarLength()}
+                onClick={() => listarLength()}
+            >
+                Ordenar por longitud</button>
+            <button className="btn btn-primary mb-2 float-right"
+                onClick={() => listar()}
             >
                 Listar Potreros</button>
-            {/* <button className="btn btn-primary mb-2 float-right"
-            onClick={() =>}
-            >
-                Ordenar por longitud</button> */}
-
             <div className="album py-5">
                 <div className="target">
                     {
@@ -39,7 +35,7 @@ const ListPasture = ({ sortPastureByDensityAction, sortPastureByLengthAction, pa
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ sortPastureByDensityAction, sortPastureByLengthAction }, dispatch);
+    return bindActionCreators({ listPastureAction, sortPastureByDensityAction, sortPastureByLengthAction }, dispatch);
 };
 // listPastureAction
 
