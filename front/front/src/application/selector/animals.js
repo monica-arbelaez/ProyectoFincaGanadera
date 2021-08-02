@@ -1,0 +1,1 @@
+export const getAllAnimals = state => state.animals.animals;
