@@ -63,7 +63,7 @@ footer {
 
 .formulario {
   background-color: rgba(255, 255, 255, 0.507);
-  margin-top: 35rem;
+  margin-top: 10rem;
   border-radius: 1rem;
 }
 
@@ -71,6 +71,7 @@ footer {
 .target {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-top: 5rem;
 }
 
 .card {
@@ -219,6 +220,7 @@ body {
 @media screen and (max-width: 992px) {
   .target {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 14rem;
   }
   .row {
     display: flex;
@@ -228,11 +230,15 @@ body {
     margin: 0 auto;
     padding: 0 6rem;
   }
+  .formulario {
+    margin-top: 18rem;
+  }
 }
 @media screen and (max-width: 767px) {
   .target {
     display: inherit;
     grid-template-columns: inherit;
+    margin-top: 5rem;
     /* margin: 4rem;   */
   }
 
@@ -246,6 +252,9 @@ body {
 
   .form-control {
     width: 100%;
+  }
+  .formulario {
+    margin-top: 10rem;
   }
 }
 
@@ -264,6 +273,11 @@ body {
     margin: 0 auto;
     align-items: center;
     justify-content: center;
+    margin-top: 5rem;
+  }
+
+  .formulario {
+    margin-top: 10rem;
   }
   
 }

@@ -5,14 +5,18 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Provider } from "react-redux";
 import store from "../../application/store";
-import Pasture from "../pages/Pasture";
+import CreatePasture from "../pages/CreatePasture";
 import { PrivateRoute } from "../routes/PrivateRoute";
 import { auth } from "../../infrastucture/firebase/firebase";
-import Pastures from "../pages/Pastures";
+import AnimalsByPasture from "../pages/AnimalsByPasture";
 import '../css/style.css'
-import ListPastureItems from "../components/ListPastureItems";
+import ListPasture from "../components/ListPasture";
 import Layout from "../components/Layout";
+import createAnimal from "../pages/CreateAnimal";
 
+/**TODO: 
+ * 
+*/
 class AppRouter extends Component {
     constructor() {
         super();
@@ -40,11 +44,8 @@ class AppRouter extends Component {
 
     render() {
         return this.state.loading === true ? (
-            <div className="d-flex justify-content-center">
-                <div className="spinner-border" role="status">
-                    <span className="visually-hidden"></span>
-                </div>
-            </div>
+            <i className="fa fa-cog fa-spin fa-3x fa-fw"><span className="sr-only">Loading...</span></i>
+
         ) : (
             <Router>
                 <Provider store={store}>
@@ -55,19 +56,25 @@ class AppRouter extends Component {
                                 exact
                                 path="/pasture"
                                 authenticated={this.state.authenticated}
-                                component={Pasture}
+                                component={CreatePasture}
                             />
                             <PrivateRoute
                                 exact
-                                path="/order-by-length"
+                                path="/create-animal"
                                 authenticated={this.state.authenticated}
-                                component={ListPastureItems}
+                                component={createAnimal}
                             />
                             <PrivateRoute
                                 exact
                                 path="/list-pasture"
                                 authenticated={this.state.authenticated}
-                                component={Pastures}
+                                component={ListPasture}
+                            />
+                            <PrivateRoute
+                                exact
+                                path="/list-animals-by-pasture"
+                                authenticated={this.state.authenticated}
+                                component={AnimalsByPasture}
                             />
                             <Route exact path="/" component={Home} />
                         </Switch>

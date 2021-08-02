@@ -1,0 +1,1 @@
+export const getAnimalsByPasture = state => state.animalsByPasture.animalsByPasture;

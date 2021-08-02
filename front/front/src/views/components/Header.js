@@ -2,15 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { signInWithGoogle } from "../../infrastucture/firebase/auth";
 import { auth } from "../../infrastucture/firebase/firebase";
-import CreateAnimal from "./createAnimalModal";
+import Swal from 'sweetalert2';
 
 const Header = () => {
-  const googleSignIn = async () => {
-    try {
-      await signInWithGoogle();
-    } catch (error) {
-      this.setState({ error: error.message });
-    }
+  const googleSignIn = async (event) => {
+    event.preventDefault();
+    signInWithGoogle().then(response => {
+      Swal.fire(
+        'Correcto',
+        response.user.displayName,
+        'success'
+      )
+    }).catch(error => {
+      Swal.fire(
+        error.message,
+      )
+    })
   };
 
   return (
@@ -20,7 +27,6 @@ const Header = () => {
           <Link className="navbar-brand" to="/">
             Finca Ganadera
           </Link>
-
           {auth().currentUser ? (
             <>
               <div
@@ -28,15 +34,14 @@ const Header = () => {
                 id="navbarNavAltMarkup"
               >
                 <div className="navbar-nav">
-                  <CreateAnimal />
+                  <Link className="nav-item nav-link mr-3"
+                    to="/create-animal">newAnimal </Link>
                   <Link className="nav-item nav-link mr-3"
                     to="/pasture">newPasture </Link>
                   <Link className="nav-item nav-link mr-3"
                     to="/list-pasture">List-Pasture </Link>
                   <Link className="nav-item nav-link mr-3"
-                    to="/order-by-density">order-by-density </Link>
-                  <Link className="nav-item nav-link mr-3"
-                    to="/order-by-length">order-by-length </Link>
+                    to="/list-animals-by-pasture">list-animals-by-pasture </Link>
                 </div>
               </div>
               <button
@@ -49,11 +54,11 @@ const Header = () => {
             </>
           ) : (
             <button
-            className=" loginBootton" 
-            aria-hidden="true" 
-            type="button"
-              onClick={() => googleSignIn()}
-            ><i className="fa fa-user fa-lg fa-sm-5"  aria-hidden="true"></i>
+              className="btn btn-danger mr-3"
+              type="button"
+              onClick={googleSignIn}
+            >
+              Login Google
             </button>
           )}
         </div>

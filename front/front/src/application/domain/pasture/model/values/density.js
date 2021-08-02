@@ -7,9 +7,9 @@ class Density {
       throw new Error("la densidad debe ser numerica");
     }
     if (density < 0 || density > 100) {
-      throw new Error("Debes incluir una densidad entre cero y cien");
+      throw new Error("Debes incluir una densidad entre 0 y 100");
     }
     this.density = density;
   }
 }
-module.exports = Density;
+export default Density;

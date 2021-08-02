@@ -1,17 +1,48 @@
-import React from 'react'
-import Carousel from './carousel/Carousel'
+import React, { useEffect } from 'react'
+import PastureItem from './PastureItem';
+import { listPastureAction, sortPastureByLengthAction, sortPastureByDensityAction } from '../../application/actions/pasture'
+import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
+import { getAllPastures } from '../../application/selector/pastures'
+const ListPasture = ({ listPastureAction, sortPastureByDensityAction, sortPastureByLengthAction, pastures }) => {
 
-
-export default function ListPasture({ pastures }) {
-    if (pastures.length) {
-        return (
-            <div>
-                {pastures.map((animalList, index) =>
-                    <Carousel key={index} index={index} list={animalList} />)}
-            </div>
-        )
-    }
+    const listar = () => listPastureAction();
+    const listarLength = () => sortPastureByLengthAction();
+    const listarDensity = () => sortPastureByDensityAction();
     return (
-        <p>No hay animales registrados</p>
+        <>
+            <button className="btn btn-primary mb-2 float-right"
+                onClick={() => listarDensity()}
+            >
+                Ordenar por Densidad</button>
+            <button className="btn btn-primary mb-2 float-right"
+                onClick={() => listarLength()}
+            >
+                Ordenar por longitud</button>
+            <button className="btn btn-primary mb-2 float-right"
+                onClick={() => listar()}
+            >
+                Listar Potreros</button>
+            <div className="album py-5">
+                <div className="target">
+                    {
+                        <PastureItem pastures={pastures} />
+                    }
+                </div>
+            </div >
+        </>
     )
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ listPastureAction, sortPastureByDensityAction, sortPastureByLengthAction }, dispatch);
+};
+// listPastureAction
+
+const mapStateToProps = (state) => {
+    return {
+        pastures: getAllPastures(state)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListPasture);

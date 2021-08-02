@@ -3,13 +3,14 @@ import Animal from '../domain/animal/model/Animal'
 import Breed from '../domain/animal/model/values/breed';
 import Gender from '../domain/animal/model/values/gender';
 import Age from '../domain/animal/model/values/age';
+import Swal from 'sweetalert2';
 
 import {
     CREATE_ANIMAL,
     CREATE_ANIMAL_SUCCESS,
     CREATE_ANIMAL_ERROR,
     LIST_ANIMAL,
-    LIST_SUCCESSFUL_ANIMAL,
+    LIST_ANIMAL_SUCCESS,
     LIST_ANIMAL_ERROR,
 } from '../types/index'
 
@@ -21,9 +22,17 @@ export function createAnimalAction(animal) {
         dispatch(createAnimal());
         try {
             const animal = getAnimal(breed, gender, age);
-            await clienteAxios.post('/create', animal);
+            const response = await clienteAxios.post('/create', animal);
+            Swal.fire(
+                'Correcto',
+                response.data.message,
+                'success'
+            )
             dispatch(createAnimalSuccess(animal))
         } catch (error) {
+            Swal.fire(
+                error.message
+            )
             dispatch(createAnimalError(error.message))
         }
     }
@@ -47,38 +56,38 @@ export function listAnimalsAction() {
     return async (dispatch) => {
         dispatch(listAnimal());
         try {
-            const animals = await clienteAxios.get('/animals');
-            dispatch(listSuccessAnimal(animals));
+            const animals = await clienteAxios.get('/');
+            dispatch(listAnimalSuccess(animals));
         } catch (error) {
             dispatch(listAnimalError(error.message));
         }
     }
 }
 
-const createAnimal = () => ({
+export const createAnimal = () => ({
     type: CREATE_ANIMAL
 })
 
-const createAnimalSuccess = (animal) => ({
+export const createAnimalSuccess = (animal) => ({
     type: CREATE_ANIMAL_SUCCESS,
     payload: animal
 })
 
-const createAnimalError = (error) => ({
+export const createAnimalError = (error) => ({
     type: CREATE_ANIMAL_ERROR,
     payload: error
 })
 
-const listAnimal = () => ({
+export const listAnimal = () => ({
     type: LIST_ANIMAL
 })
 
-const listSuccessAnimal = (animals) => ({
-    type: LIST_SUCCESSFUL_ANIMAL,
+export const listAnimalSuccess = (animals) => ({
+    type: LIST_ANIMAL_SUCCESS,
     payload: animals
 })
 
-const listAnimalError = (error) => ({
+export const listAnimalError = (error) => ({
     type: LIST_ANIMAL_ERROR,
     payload: error
 })
