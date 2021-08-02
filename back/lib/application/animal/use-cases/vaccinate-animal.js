@@ -14,6 +14,10 @@ const getDateNow = () => {
 };
 
 const vaccinateAnimal = async (animalId, vaccinate, repository) => {
+  const exist = await repository.getByAnimalId(animalId)
+  if(!exist){
+    throw new Error("El animal a vacunar no existe")
+  }
   const isVaccinated = vaccinate.isVaccinated;
   const toUpdate = new Registry(
     new DateHistory(getDateNow()),
