@@ -42,8 +42,6 @@ const Header = () => {
                   <Link className="nav-item nav-link mr-3"
                     to="/create-animal">newAnimal </Link>
                   <Link className="nav-item nav-link mr-3"
-                    to="/pasture">newPasture </Link>
-                  <Link className="nav-item nav-link mr-3"
                     to="/list-pasture">POTREROS </Link>
                   <Link className="nav-item nav-link mr-3"
                     to="/list-animals-by-pasture">ANIMALES </Link>

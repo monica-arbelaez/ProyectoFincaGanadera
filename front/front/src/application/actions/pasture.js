@@ -34,7 +34,7 @@ export function createPastureAction(pasture) {
             dispatch(createPastureSuccess(pasture));
             setTimeout(() => {
                 window.location.href = "/list-pasture";
-            }, 500);
+            }, 200);
         } catch (error) {
             dispatch(createPastureError(error.message))
         }
@@ -83,11 +83,6 @@ export function listPastureAction() {
         try {
             const pastures = await clienteAxios.get('/list-pasture');
             dispatch(listPastureSuccess(pastures.data.data))
-            Swal.fire(
-                'Correcto',
-                pastures.data.message,
-                'success'
-            )
         } catch (error) {
             Swal.fire(
                 error.message,

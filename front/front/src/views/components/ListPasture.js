@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import PastureItem from "./PastureItem";
 import {
   listPastureAction,
   sortPastureByLengthAction,
   sortPastureByDensityAction,
+  createPastureAction
+
 } from "../../application/actions/pasture";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -12,12 +15,16 @@ const ListPasture = ({
   listPastureAction,
   sortPastureByDensityAction,
   sortPastureByLengthAction,
-  pastures,
+  createPastureAction,
+  pastures
 }) => {
   useEffect(() => {
     listPastureAction();
   }, []);
-  const listar = () => listPastureAction();
+  const history = useHistory();
+  const crearPotrero = () => {
+    history.push("/pasture")
+    };
 
   const listarLength = () => sortPastureByLengthAction();
   const listarDensity = () => sortPastureByDensityAction();
@@ -35,8 +42,8 @@ const ListPasture = ({
       >
         Ordenar por longitud
       </button>
-      <button className="btn btns mb-2 float-right" onClick={() => listar()}>
-        Listar Potreros
+      <button className="btn btns mb-2 float-right" onClick={() => crearPotrero()}>
+        Crear Potrero
       </button>
       <div className="album py-5">
         <div className="target">{<PastureItem pastures={pastures} />}</div>
@@ -51,6 +58,7 @@ const mapDispatchToProps = (dispatch) => {
       listPastureAction,
       sortPastureByDensityAction,
       sortPastureByLengthAction,
+      createPastureAction
     },
     dispatch
   );
