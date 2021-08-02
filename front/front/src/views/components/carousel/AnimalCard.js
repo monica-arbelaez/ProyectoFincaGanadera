@@ -20,6 +20,11 @@ const AnimalCard = ({ vaccinateAnimalAction, index, data }) => {
           <h4>{data.dataSheet.breed.breed}</h4>
           <p>{data.dataSheet.age.age} Meses</p>
           <p>{data.dataSheet.gender.gender}</p>
+          <p className="card-text ">
+                {data.registry
+                  ? `Vacunado el ${data.registry.date.date}`
+                  : "Sin vacunar"}
+              </p>
           <button className="btn btn-danger" onClick={() => vaccinate(data._id)}>
             VACUNAR <i className="fa fa-angle-right"></i>
           </button>

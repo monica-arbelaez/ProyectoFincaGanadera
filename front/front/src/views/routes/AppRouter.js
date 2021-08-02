@@ -14,6 +14,7 @@ import ListPasture from "../components/ListPasture";
 import Layout from "../components/Layout";
 import createAnimal from "../pages/CreateAnimal";
 import ListAnimal from "../components/ListAnimal";
+import Animals from "../pages/Animals";
 
 /**TODO: 
  * 
@@ -73,15 +74,21 @@ class AppRouter extends Component {
                             />
                             <PrivateRoute
                                 exact
+                                path="/animals-by-pasture"
+                                authenticated={this.state.authenticated}
+                                component={AnimalsByPasture}
+                            />
+                            <PrivateRoute
+                                exact
                                 path="/list-pasture"
                                 authenticated={this.state.authenticated}
                                 component={ListPasture}
                             />
                             <PrivateRoute
                                 exact
-                                path="/list-animals-by-pasture"
+                                path="/list-animals"
                                 authenticated={this.state.authenticated}
-                                component={AnimalsByPasture}
+                                component={Animals}
                             />
                             <Route exact path="/" component={Home} />
                         </Switch>

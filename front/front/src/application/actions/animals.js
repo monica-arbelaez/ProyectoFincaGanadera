@@ -1,5 +1,6 @@
 import clienteAxios from "../../infrastucture/api/axios";
 import Animal from "../domain/animal/model/Animal";
+import {listAnimalByPastureAction} from "./animalsByPasture"
 import Breed from "../domain/animal/model/values/breed";
 import Gender from "../domain/animal/model/values/gender";
 import Age from "../domain/animal/model/values/age";
@@ -51,7 +52,7 @@ export function listAnimalsAction() {
   return async (dispatch) => {
     dispatch(listAnimal());
     try {
-      const animals = await clienteAxios.get("/");
+      const animals = await clienteAxios.get("/all");
       dispatch(listAnimalSuccess(animals.data.data));
     } catch (error) {
       dispatch(listAnimalError(error.message));
@@ -71,6 +72,8 @@ export function vaccinateAnimalAction(animalId) {
       );
 
       dispatch(vaccinateAnimalSuccess(response.data.dataId));
+      dispatch(listAnimalsAction())
+      dispatch(listAnimalByPastureAction())
       Swal.fire("Correcto", response.data.message, "success");
     } catch (error) {
       dispatch(vaccinateAnimalError(error.message));
