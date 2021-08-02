@@ -2,7 +2,7 @@ const axios = require("axios");
 
 const time = 10000;
 
-describe("Create animal API", () => {
+describe("Get animals API", () => {
   beforeAll(() => {
 
     axios.defaults.baseURL = "http://localhost:3000/api/animals";
@@ -15,7 +15,7 @@ describe("Create animal API", () => {
   it(
     'GET get all animals successfully',
       async () => {
-        const response = await axios.get('/');
+        const response = await axios.get('/all');
         const animals = response.data.data;
 
         expect(response.status).toBe(200);

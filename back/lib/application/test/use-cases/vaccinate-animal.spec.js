@@ -5,17 +5,20 @@ const repository = new AnimalRepository();
 describe("vaccinate animals test", () => {
   beforeAll(() => {
     jest
+      .spyOn(repository, "getByAnimalId")
+      .mockImplementation(() => "610195efa854860015f37161")
+    jest
       .spyOn(repository, "updateAnimal")
-      .mockImplementation(() => "61017e93eab29f45107fc85a");
+      .mockImplementation(() => "610195efa854860015f37161");
   });
   it("Happypath animal vaccinated succesfully", async () => {
     const vaccinate = { isVaccinated: false };
 
     const vaccinatedAnimalId = await animalServices.vaccinateAnimal(
-      "61017e93eab29f45107fc85a",
+      "610195efa854860015f37161",
       vaccinate,
       repository
     );
-    expect(vaccinatedAnimalId).toBe("61017e93eab29f45107fc85a");
+    expect(vaccinatedAnimalId).toBe("610195efa854860015f37161");
   });
 });
